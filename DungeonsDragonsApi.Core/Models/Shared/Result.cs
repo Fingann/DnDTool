@@ -11,4 +11,9 @@ namespace DungeonsDragonsApi.Core.Models
         public string name { get; set; }
         public string url { get; set; }
     }
+    public class RootObject
+    {
+        public int count { get; set; }
+        public List<Result> results { get; set; }
+    }
 }
