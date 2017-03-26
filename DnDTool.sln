@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDTool", "ConnectTool\DnDTool.csproj", "{7F5AF1E4-7FBE-4E32-8C25-EE2D1A01ACA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonsDragonsApi.Net", "DungeonsDragonsApi.Net\DungeonsDragonsApi.Net.csproj", "{A4DD8B6D-CC35-4AC0-B917-B5443E6040FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonsDragonsApi.Core", "DungeonsDragonsApi.Core\DungeonsDragonsApi.Core.csproj", "{93638B6D-4649-4ADB-B854-1F9D41E5837D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonsDragonsApiTests", "DungeonsDragonsApiTests\DungeonsDragonsApiTests.csproj", "{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F5AF1E4-7FBE-4E32-8C25-EE2D1A01ACA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F5AF1E4-7FBE-4E32-8C25-EE2D1A01ACA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F5AF1E4-7FBE-4E32-8C25-EE2D1A01ACA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F5AF1E4-7FBE-4E32-8C25-EE2D1A01ACA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4DD8B6D-CC35-4AC0-B917-B5443E6040FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4DD8B6D-CC35-4AC0-B917-B5443E6040FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4DD8B6D-CC35-4AC0-B917-B5443E6040FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4DD8B6D-CC35-4AC0-B917-B5443E6040FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93638B6D-4649-4ADB-B854-1F9D41E5837D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93638B6D-4649-4ADB-B854-1F9D41E5837D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93638B6D-4649-4ADB-B854-1F9D41E5837D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93638B6D-4649-4ADB-B854-1F9D41E5837D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
