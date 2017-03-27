@@ -1,29 +1,42 @@
 ﻿<UserControl
-    x:Class="DnDTool.Views.CharecterView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:views="clr-namespace:DnDTool.Views.CharecterViews"
+    xmlns:charModel="clr-namespace:DnDTool.Model.Character"
+    x:Class="DnDTool.Views.CharecterView"
     d:DesignHeight="500"
     d:DesignWidth="900"
-    DataContext="{Binding Caller, Source={StaticResource Locator}}"
     mc:Ignorable="d">
     <UserControl.Resources>
         <Thickness x:Key="InfoMargin">0,5,0,5</Thickness>
-
+        <DataTemplate DataType="{x:Type charModel:Character }">
+            <views:CharecterInfoView/>
+        </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </UserControl.Resources>
+    <UserControl.DataContext>
+        <Binding Path="Caller" Source="{StaticResource Locator}"/>
+    </UserControl.DataContext>
     <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="89" />
-            <RowDefinition Height="37" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="37*" />
-            <ColumnDefinition Width="42*" />
+            <ColumnDefinition Width="437" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
+
+
+
+
+
+
+        <Custom:ContentControlEx Content="{Binding Charecter}" Margin="0"  />
+
 
 
 

@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace DnDTool.Model.Character
 {
-    class Character
-    {  
-        ///////////////////////////////////////////////////////////////////////////////////////   
-        // INFO
-       
+    public class Character
+    {
+        public Character()
+        {
+            
+        }
+       public Info Info { get; set; }
 
-       
-        ///////////////////////////////////////////////////////////////////////////////////////  
-        
+        public AbilityScores AbilityScores { get; set; }
 
-       
-        
+        public Skills Skills { get; set; }
+
+        public Traits Traits { get; set;  }
+
+
+
+
 
 
     }

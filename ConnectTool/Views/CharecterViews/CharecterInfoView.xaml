@@ -5,15 +5,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    
+   d:DataContext="{StaticResource Character}"
     d:DesignHeight="100"
     d:DesignWidth="400"
+   
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="InfoStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Margin" Value="0,0,5,0" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style x:Key="InfoLabelStyle" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="Padding" Value="1"/>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="109*" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="291*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.ColumnSpan="0">
+        <Grid Grid.Row="0">
             <Image
                 Width="100"
                 Height="100"
@@ -23,9 +40,8 @@
         <Grid
             x:Name="Info"
             Grid.Row="0"
-            Grid.Column="1"
-            Grid.ColumnSpan="0"
-            Margin="5">
+           Grid.Column="1"
+            Margin="5,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -40,114 +56,82 @@
 
             </Grid.RowDefinitions>
             <TextBox
+                Style="{StaticResource InfoStyle}"
                 x:Name="ClassLevel"
-                Margin="0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                FontSize="10"
-                Text="Barbarian 50"
-                TextWrapping="Wrap" />
+                Text="Barbarian 50" />
             <Label
                 x:Name="ClassLevelLabel"
+                Style="{StaticResource InfoLabelStyle}"
                 Grid.Row="1"
                 Grid.Column="0"
-                Padding="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
                 Content="Class Level"
-                FontSize="6" />
+                />
             <TextBox
+                Style="{StaticResource InfoStyle}"
                 x:Name="Race"
                 Grid.Row="2"
                 Grid.Column="0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                FontSize="10"
                 Text="Half-Orc"
-                TextWrapping="Wrap" />
+                 />
             <Label
                 x:Name="RaceLabel"
+                Style="{StaticResource InfoLabelStyle}"
                 Grid.Row="3"
                 Grid.Column="0"
-                Padding="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Content="Race"
-                FontSize="6" />
+               
+                Content="Race"/>
             <TextBox
                 x:Name="Background"
-                Grid.Column="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                FontSize="10"
-                Text="Barbarian 50"
-                TextWrapping="Wrap" />
+                Grid.Row="0" Grid.Column="1"
+                Style="{StaticResource InfoStyle}"
+                Text="Pirate"
+                />
             <Label
                 x:Name="BackgroundLabel"
+                Style="{StaticResource InfoLabelStyle}"
                 Grid.Row="1"
                 Grid.Column="1"
-                Padding="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Content="Background"
-                FontSize="6" />
+                Content="Background"/>
 
             <TextBox
-                x:Name="ClassLevel_Copy1"
-                Grid.Column="2"
-                Margin="0,0,-1,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                FontSize="10"
-                Text="Barbarian 50"
-                TextWrapping="Wrap" />
+                Style="{StaticResource InfoStyle}"
+                x:Name="NameLable"
+                Grid.Row="0" Grid.Column="2"
+                Text="EliteZodiaC"
+                 />
             <TextBox
+                Style="{StaticResource InfoStyle}"
                 x:Name="Allignment"
                 Grid.Row="2"
                 Grid.Column="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                FontSize="10"
                 Text="Natural Evil"
-                TextWrapping="Wrap" />
+                 />
             <TextBox
-                x:Name="Race_Copy1"
+                x:Name="ExperiencePoints"
+                Style="{StaticResource InfoStyle}"
                 Grid.Row="2"
                 Grid.Column="2"
-                Margin="0,0,-1,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                FontSize="10"
                 Text="Half-Orc"
-                TextWrapping="Wrap" />
+                />
             <Label
                 x:Name="AllignmentLabel"
+                Style="{StaticResource InfoLabelStyle}"
                 Grid.Row="3"
                 Grid.Column="1"
-                Padding="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Content="Allignment"
-                FontSize="6" />
+                
+                Content="Allignment" />
             <Label
+                x:Name="ExperiencePointsLable"
+                Style="{StaticResource InfoLabelStyle}"
                 Grid.Row="3"
                 Grid.Column="2"
-                Margin="0,0,-1,0"
-                Padding="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Content="Race"
-                FontSize="6" />
+                Content="Experience points"/>
             <Label
-                x:Name="ClassLevelLabel_Copy1"
+                x:Name="Name"
+                Style="{StaticResource InfoLabelStyle}"
                 Grid.Row="1"
                 Grid.Column="2"
-                Margin="0,0,-1,0"
-                Padding="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Content="Class Level"
-                FontSize="6" />
+                Content="Name" />
 
         </Grid>
     </Grid>

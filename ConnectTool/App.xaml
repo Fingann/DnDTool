@@ -6,6 +6,7 @@
     xmlns:ignore="http://www.galasoft.ch/ignore"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:DnDTool.ViewModel"
+    xmlns:char="clr-namespace:DnDTool.Model.Character"
     StartupUri="MainWindow.xaml"
     mc:Ignorable="d ignore">
 
@@ -14,7 +15,8 @@
         <ResourceDictionary>
             <!--  Global View Model Locator  -->
             <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
-
+            <char:Character x:Key="Character"></char:Character>
+            
 
             <!--  MahApps Brushes  -->
             <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}" />

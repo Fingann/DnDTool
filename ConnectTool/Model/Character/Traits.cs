@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnDTool.Model.Character
 {
-    class Traits
+    public class Traits
     {
         public string PersonalTraits { get; set; }
         public string Ideals { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnDTool.Model.Character
 {
-    class Info
+    public class Info
     {
         public string PlayerName { get; set; }
         public string CharecterName { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnDTool.Model.Character
 {
-    class Skills
+    public class Skills
     {
     }
 }

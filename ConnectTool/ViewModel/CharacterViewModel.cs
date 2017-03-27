@@ -10,7 +10,9 @@
 using System;
 using DnDTool.Interface;
 using DnDTool.Model.Services;
-using GalaSoft.MvvmLight.CommandWpf;
+using DnDTool.Model.Character;
+using GalaSoft.MvvmLight.CommandWpf; 
+      
 
 namespace DnDTool.ViewModel
 {
@@ -31,6 +33,10 @@ namespace DnDTool.ViewModel
             _notificationService = notificationService;
             this.DisplayNotificationCommand = new RelayCommand(this.DisplayNotification);
         }
+
+
+
+        public Character Charecter { get; set; } = new Character();
 
         private void DisplayNotification()
         {
