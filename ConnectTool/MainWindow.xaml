@@ -11,9 +11,9 @@
     xmlns:ignore="http://www.galasoft.ch/ignore"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:DnDTool.ViewModel"
     xmlns:views="clr-namespace:DnDTool.Views"
-    Title="Dungons And Dragons Helper Tool"
+    xmlns:vm="clr-namespace:DnDTool.ViewModel"
+    Title="D&amp;D Tool"
     Width="900"
     Height="500"
     dialog:DialogParticipation.Register="{Binding}"
@@ -56,7 +56,7 @@
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:CharacterViewModel}">
-                <views:CallerView />
+                <views:CharecterView />
             </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
@@ -152,7 +152,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="22"
-                            Text="{Binding _navigationService.CurrentView.Title}"/>
+                            Text="{Binding _navigationService.CurrentView.Title}" />
                     </DockPanel>
                 </materialDesign:ColorZone>
                 <Grid Margin="0">

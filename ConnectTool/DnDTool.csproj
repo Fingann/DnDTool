@@ -118,8 +118,14 @@
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Interface\IDisplayable.cs" />
     <Compile Include="Interface\INavigationView.cs" />
+    <Compile Include="Model\Character\AbilityScore.cs" />
+    <Compile Include="Model\Character\AbilityScores.cs" />
+    <Compile Include="Model\Character\Attributs.cs" />
     <Compile Include="Model\Character\Character.cs" />
+    <Compile Include="Model\Character\Info.cs" />
+    <Compile Include="Model\Character\Skills.cs" />
     <Compile Include="Model\Character\Traits.cs" />
+    <Compile Include="Model\Character\Wepons.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\MenuItem.cs" />
     <Compile Include="Model\Services\DataService.cs" />
@@ -137,8 +143,11 @@
     <Compile Include="ViewModel\InventoryViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="Views\CallerView.xaml.cs">
-      <DependentUpon>CallerView.xaml</DependentUpon>
+    <Compile Include="Views\CharecterView.xaml.cs">
+      <DependentUpon>CharecterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharecterViews\CharecterInfoView.xaml.cs">
+      <DependentUpon>CharecterInfoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -159,7 +168,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CallerView.xaml">
+    <Page Include="Views\CharecterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CharecterViews\CharecterInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

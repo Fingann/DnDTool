@@ -8,8 +8,6 @@ namespace DnDTool.Model.Character
 {
     class Traits
     {
-        public string Race { get; set; }
-        public string Alignment { get; set; }
         public string PersonalTraits { get; set; }
         public string Ideals { get; set; }
         public string Bonds { get; set; }

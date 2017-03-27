@@ -47,7 +47,7 @@ namespace DnDTool.ViewModel
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        public string Title { get; set; } = "Caller View";
+        public string Title { get; set; } = "Charecter View";
 
         public object Parameter { get; set; }
     }

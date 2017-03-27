@@ -3,13 +3,15 @@
 namespace DnDTool.Views
 {
     /// <summary>
-    /// Interaction logic for CallerView.xaml
+    /// Interaction logic for CharecterView.xaml
     /// </summary>
-    public partial class CallerView : UserControl
+    public partial class CharecterView : UserControl
     {
-        public CallerView()
+        public CharecterView()
         {
             InitializeComponent();
         }
+
+     
     }
 }
