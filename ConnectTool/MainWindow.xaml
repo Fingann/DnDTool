@@ -58,6 +58,9 @@
             <DataTemplate DataType="{x:Type vm:CharacterViewModel}">
                 <views:CharecterView />
             </DataTemplate>
+            <!--<DataTemplate DataType="{x:Type vm:CharacterViewModel}">
+                <views:CharecterView />
+            </DataTemplate>-->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />

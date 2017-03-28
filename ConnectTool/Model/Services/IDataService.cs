@@ -13,6 +13,8 @@ using DnDTool.Interface;
 
 namespace DnDTool.Model.Services
 {
+    using DnDTool.Model.Character;
+
     /// <summary>
     /// The DataService interface.
     /// </summary>
@@ -25,6 +27,7 @@ namespace DnDTool.Model.Services
         /// The callback.
         /// </param>
         void GetData(Action<DataItem, Exception> callback);
+        void GetCharecter(Action<Character, Exception> callback);
 
     }
 }

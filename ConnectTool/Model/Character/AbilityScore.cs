@@ -10,7 +10,7 @@ namespace DnDTool.Model.Character
     {
         public string Name { get; set; }
 
-        public string ShortName { get; set; }
+        public string Url { get; set; }
 
         public int Score { get; set; }
 

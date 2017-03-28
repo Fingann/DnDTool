@@ -1,33 +1,37 @@
 ﻿<UserControl
+    x:Class="DnDTool.Views.CharecterView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:charModel="clr-namespace:DnDTool.Model.Character"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:views="clr-namespace:DnDTool.Views.CharecterViews"
-    xmlns:charModel="clr-namespace:DnDTool.Model.Character"
-    x:Class="DnDTool.Views.CharecterView"
     d:DesignHeight="500"
     d:DesignWidth="900"
     mc:Ignorable="d">
     <UserControl.Resources>
         <Thickness x:Key="InfoMargin">0,5,0,5</Thickness>
-        <DataTemplate DataType="{x:Type charModel:Character }">
-            <views:CharecterInfoView/>
+        <DataTemplate DataType="{x:Type charModel:Info}">
+            <views:CharecterInfoView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type charModel:AbilityScores}">
+            <views:AbilityScoresView />
         </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </UserControl.Resources>
     <UserControl.DataContext>
-        <Binding Path="Caller" Source="{StaticResource Locator}"/>
+        <Binding Path="Caller" Source="{StaticResource Locator}" />
     </UserControl.DataContext>
     <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0.5*" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="437" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="400*" />
         </Grid.ColumnDefinitions>
 
 
@@ -35,7 +39,15 @@
 
 
 
-        <Custom:ContentControlEx Content="{Binding Charecter}" Margin="0"  />
+        <Custom:ContentControlEx
+            Grid.ColumnSpan="2"
+            Margin="0"
+            Content="{Binding CharecterInfo}" />
+        <Custom:ContentControlEx
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="0"
+            Content="{Binding CharecterAbilityScores}" />
 
 
 

@@ -20,7 +20,7 @@ namespace DnDTool.Model.Services
         {
             this.ViewList = new Dictionary<string, IDisplayable>
                                 {
-                                        { "Charecter", new CharacterViewModel(new NotificationService(), null) },
+                                        { "Charecter", new CharacterViewModel(new DataService(), new NotificationService(), null) },
                                         { "Inventory", new InventoryViewModel(new DialogCoordinator(), null) }
                                 };
             this.currentViewValue = this.ViewList.First().Value;

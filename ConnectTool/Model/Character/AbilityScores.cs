@@ -13,6 +13,6 @@ namespace DnDTool.Model.Character
         public int Inspiration { get; set; }
         public int PassiveWisdom { get; set; }
 
-        public List<AbilityScore> Abilityscore { get; set; }
+        public List<AbilityScore> Abilityscore { get; set; } = new List<AbilityScore>() { new AbilityScore(), new AbilityScore(), new AbilityScore(), new AbilityScore(), new AbilityScore(), new AbilityScore() };
     }
 }
