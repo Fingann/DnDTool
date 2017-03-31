@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace DnDTool.Model.Character
 {
-    class Wepons
+    public class Weapons
     {
-        
+        public List<Weapon> AvailableWeapons { get; set; }
 
+        public Weapon EquipedWeapon { get; set; } = new Weapon() {};
+
+
+            
     }
 }

@@ -126,7 +126,8 @@
     <Compile Include="Model\Character\Info.cs" />
     <Compile Include="Model\Character\Skills.cs" />
     <Compile Include="Model\Character\Traits.cs" />
-    <Compile Include="Model\Character\Wepons.cs" />
+    <Compile Include="Model\Character\Weapon.cs" />
+    <Compile Include="Model\Character\Weapons.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\MenuItem.cs" />
     <Compile Include="Model\Services\DataService.cs" />

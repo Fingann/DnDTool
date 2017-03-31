@@ -1,127 +1,122 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="CallerViewModel.cs" company="">
-//   
 // </copyright>
 // <summary>
 //   Defines the CallerViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using DnDTool.Interface;
-using DnDTool.Model.Services;
-using DnDTool.Model.Character;
-using GalaSoft.MvvmLight.CommandWpf; 
-      
+// ReSharper disable StyleCop.SA1600
 
 namespace DnDTool.ViewModel
 {
-    using System.Runtime.CompilerServices;
-
-    using DnDTool.Views.CharecterViews;
+    using DnDTool.Interface;
+    using DnDTool.Model.Character;
+    using DnDTool.Model.Services;
 
     using GalaSoft.MvvmLight;
 
     /// <summary>
-    /// The caller view model.
+    ///     The caller view model.
     /// </summary>
-    public class CharacterViewModel: ViewModelBase, INavigationView, IDisplayable
+    public class CharacterViewModel : ViewModelBase, INavigationView, IDisplayable
     {
-        //public RelayCommand DisplayNotificationCommand { get; private set; }
+        private Character character;
 
-        private INotificationService _notificationService { get; set; }
+        private AbilityScores characterAbilityScores;
 
-        private INavigationService _navigationService { get; set; }
-        
-        public IDataService _dataService { get; set; }
+        private Info characterInfo = new Info();
 
-        public CharacterViewModel(IDataService dataservice, INotificationService notificationService, INavigationService navigationService)
+        public CharacterViewModel(
+            IDataService dataservice,
+            INotificationService notificationService,
+            INavigationService navigationService)
         {
-            _navigationService = navigationService;
-            _notificationService = notificationService;
-            //this.DisplayNotificationCommand = new RelayCommand(this.DisplayNotification);
+            this._navigationService = navigationService;
+            this._notificationService = notificationService;
 
-             _dataService = dataservice;
-            _dataService.GetCharecter(((character, exception) =>
-                                             {
-                                                 if (exception != null) return;
+            // this.DisplayNotificationCommand = new RelayCommand(this.DisplayNotification);
+            this._dataService = dataservice;
+            this._dataService.GetCharecter(
+                (character, exception) =>
+                    {
+                        if (exception != null) return;
 
-                                                 Character = character;
-                                             }));
+                        this.Character = character;
+                    });
         }
 
-        
-
-    
-        private Character charecter;
-
-        private Info charecterInfo = new Info();
-
-        private AbilityScores charecterAbilityScores;
+        public IDataService _dataService { get; set; }
 
         public Character Character
         {
             get
             {
-                return this.charecter;
+                return this.character;
             }
+
             set
             {
-                charecter = value;
-                this.charecterInfo = value.Info;
-                this.RaisePropertyChanged("CharecterInfo");
+                this.character = value;
+                this.characterInfo = value.Info;
+                this.RaisePropertyChanged("CharacterInfo");
 
-                this.CharecterAbilityScores = value.AbilityScores;
-                this.RaisePropertyChanged("CharecterAbilityScores");
+                this.CharacterAbilityScores = value.AbilityScores;
+                this.RaisePropertyChanged("CharacterAbilityScores");
 
                 this.RaisePropertyChanged();
-
-            } 
+            }
         }
 
-        public Info CharecterInfo
+        public AbilityScores CharacterAbilityScores
         {
             get
             {
-                return this.charecterInfo;
+                return this.characterAbilityScores;
             }
+
             set
             {
-                this.charecterInfo = value;
+                this.characterAbilityScores = value;
                 this.RaisePropertyChanged();
             }
         }
 
-        public AbilityScores CharecterAbilityScores
+        public Info CharacterInfo
         {
             get
             {
-                return this.charecterAbilityScores;
+                return this.characterInfo;
             }
+
             set
             {
-                this.charecterAbilityScores = value;
+                this.characterInfo = value;
                 this.RaisePropertyChanged();
             }
         }
-
-        //private void DisplayNotification()
-        //{
-        //    _navigationService.NavigateTo("Inventory");
-
-
-        //    _notificationService.ShowMessage("Changing to Login View", "You have changed! ", "WindowArea",null,
-        //        () =>
-        //            {
-        //                _notificationService.Exception(new AccessViolationException("bla bla testse8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269"), "WindowArea");
-        //            });
-        //}
-
-        /// <summary>
-        /// Gets or sets the title.
-        /// </summary>
-        public string Title { get; set; } = "Charecter View";
 
         public object Parameter { get; set; }
+
+        // private void DisplayNotification()
+        // {
+        // _navigationService.NavigateTo("Inventory");
+
+        // _notificationService.ShowMessage("Changing to Login View", "You have changed! ", "WindowArea",null,
+        // () =>
+        // {
+        // _notificationService.Exception(new AccessViolationException("bla bla testse8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269se8269"), "WindowArea");
+        // });
+        // }
+
+        /// <summary>
+        ///     Gets or sets the title.
+        /// </summary>
+        public string Title { get; set; } = "Character View";
+
+        private INavigationService _navigationService { get; set; }
+
+        // public RelayCommand DisplayNotificationCommand { get; private set; }
+        private INotificationService _notificationService { get; set; }
     }
 }

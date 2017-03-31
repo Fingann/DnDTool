@@ -5,147 +5,168 @@
     xmlns:converter="clr-namespace:DnDTool.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{StaticResource info}"
     d:DesignHeight="100"
     d:DesignWidth="400"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <Style
-            x:Key="InfoStyle"
-            BasedOn="{StaticResource {x:Type TextBox}}"
-            TargetType="TextBox">
-            <Setter Property="Margin" Value="0,0,5,0" />
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="TextWrapping" Value="Wrap" />
-            <Setter Property="MaxWidth" Value="150" />
-        </Style>
-        <Style
-            x:Key="InfoLabelStyle"
-            BasedOn="{StaticResource {x:Type Label}}"
-            TargetType="Label">
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--  note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want  -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
 
-            <Setter Property="FontSize" Value="10" />
-            <Setter Property="Padding" Value="1" />
-        </Style>
-        <converter:PositiveNegativeColorConverter x:Key="NameConverter" />
+
+
+            <Style
+                x:Key="InfoStyle"
+                BasedOn="{StaticResource {x:Type TextBox}}"
+                TargetType="TextBox">
+                <Setter Property="Margin" Value="0,0,5,0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="MaxWidth" Value="150" />
+            </Style>
+            <Style
+                x:Key="InfoLabelStyle"
+                BasedOn="{StaticResource {x:Type Label}}"
+                TargetType="Label">
+
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="Padding" Value="1" />
+            </Style>
+
+        </ResourceDictionary>
     </UserControl.Resources>
+    <materialDesign:Card Padding="1">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="291*" />
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0">
-
-            <Image
-                x:Name="CharacterImage"
-                Width="100"
-                Height="100"
-                Source="/Resources/Images/Stormtrouper.jpg" />
-            <TextBox
-                MinWidth="25"
-                MaxWidth="{Binding ElementName=CharacterImage, Path=ActualWidth}"
-                Margin="0,0,7,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                HorizontalContentAlignment="Center"
-                FontSize="30"
-                FontWeight="Bold"
-                Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" />
-
-        </Grid>
-        <Grid
-            x:Name="Info"
-            Grid.Row="0"
-            Grid.Column="1"
-            Margin="5,0,0,0">
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="291*" />
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
+            <Grid Grid.Row="0">
 
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="1*" />
+                <Image
+                    x:Name="CharacterImage"
+                    Width="100"
+                    Height="100"
+                    Source="/Resources/Images/Stormtrouper.jpg" />
+                <TextBox
+                    MinWidth="25"
+                    MaxWidth="{Binding ElementName=CharacterImage, Path=ActualWidth}"
+                    Margin="0,0,7,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Center"
+                    FontSize="30"
+                    FontWeight="Bold"
+                    Foreground="{StaticResource AccentColorBrush3}"
+                    Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" />
 
-            </Grid.RowDefinitions>
-            <TextBox x:Name="ClassLevel" Style="{StaticResource InfoStyle}">
-                <TextBox.Text>
-                    <Binding Path="Class" />
-                </TextBox.Text>
-            </TextBox>
-            <Label
-                x:Name="ClassLevelLabel"
-                Grid.Row="1"
-                Grid.Column="0"
-                Content="Class"
-                Style="{StaticResource InfoLabelStyle}" />
-            <TextBox
+            </Grid>
+            <Grid
+                x:Name="Info"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1*" />
+
+                </Grid.RowDefinitions>
+                <TextBox x:Name="ClassLevel" Style="{StaticResource InfoStyle}">
+                    <TextBox.Text>
+                        <Binding Path="Class" />
+                    </TextBox.Text>
+                </TextBox>
+                <Label
+                    x:Name="ClassLevelLabel"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Content="Class"
+                    Style="{StaticResource InfoLabelStyle}" />
+                <ComboBox
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    materialDesign:HintAssist.Hint="Search"
+                    materialDesign:HintAssist.HintOpacity=".26"
+                    IsEditable="True" />
+                <!--<TextBox
                 x:Name="Race"
                 Grid.Row="2"
                 Grid.Column="0"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Race, UpdateSourceTrigger=PropertyChanged}" />
-            <Label
-                x:Name="RaceLabel"
-                Grid.Row="3"
-                Grid.Column="0"
-                Content="Race"
-                Style="{StaticResource InfoLabelStyle}" />
-            <TextBox
-                x:Name="Background"
-                Grid.Row="0"
-                Grid.Column="1"
-                Style="{StaticResource InfoStyle}"
-                Text="{Binding Background, UpdateSourceTrigger=PropertyChanged}" />
-            <Label
-                x:Name="BackgroundLabel"
-                Grid.Row="1"
-                Grid.Column="1"
-                Content="Background"
-                Style="{StaticResource InfoLabelStyle}" />
+                Text="{Binding Race, UpdateSourceTrigger=PropertyChanged}" />-->
+                <Label
+                    x:Name="RaceLabel"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Content="Race"
+                    Style="{StaticResource InfoLabelStyle}" />
+                <TextBox
+                    x:Name="Background"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{StaticResource InfoStyle}"
+                    Text="{Binding Background, UpdateSourceTrigger=PropertyChanged}" />
+                <Label
+                    x:Name="BackgroundLabel"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Content="Background"
+                    Style="{StaticResource InfoLabelStyle}" />
 
-            <TextBox
-                x:Name="NameLable"
-                Grid.Row="0"
-                Grid.Column="2"
-                Style="{StaticResource InfoStyle}"
-                Text="{Binding CharecterName, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox
-                x:Name="Allignment"
-                Grid.Row="2"
-                Grid.Column="1"
-                Style="{StaticResource InfoStyle}"
-                Text="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox
-                x:Name="ExperiencePoints"
-                Grid.Row="2"
-                Grid.Column="2"
-                Style="{StaticResource InfoStyle}"
-                Text="{Binding ExperiancePoints, UpdateSourceTrigger=PropertyChanged}" />
-            <Label
-                x:Name="AllignmentLabel"
-                Grid.Row="3"
-                Grid.Column="1"
-                Content="Allignment"
-                Style="{StaticResource InfoLabelStyle}" />
-            <Label
-                x:Name="ExperiencePointsLable"
-                Grid.Row="3"
-                Grid.Column="2"
-                Content="Experience points"
-                Style="{StaticResource InfoLabelStyle}" />
-            <Label
-                x:Name="Name"
-                Grid.Row="1"
-                Grid.Column="2"
-                Content="Name"
-                Style="{StaticResource InfoLabelStyle}" />
+                <TextBox
+                    x:Name="NameLable"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Style="{StaticResource InfoStyle}"
+                    Text="{Binding CharecterName, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox
+                    x:Name="Allignment"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Style="{StaticResource InfoStyle}"
+                    Text="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox
+                    x:Name="ExperiencePoints"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Style="{StaticResource InfoStyle}"
+                    Text="{Binding ExperiancePoints, UpdateSourceTrigger=PropertyChanged}" />
+                <Label
+                    x:Name="AllignmentLabel"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Content="Allignment"
+                    Style="{StaticResource InfoLabelStyle}" />
+                <Label
+                    x:Name="ExperiencePointsLable"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Content="Experience points"
+                    Style="{StaticResource InfoLabelStyle}" />
+                <Label
+                    x:Name="Name"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Content="Name"
+                    Style="{StaticResource InfoLabelStyle}" />
 
+            </Grid>
         </Grid>
-    </Grid>
+    </materialDesign:Card>
 </UserControl>

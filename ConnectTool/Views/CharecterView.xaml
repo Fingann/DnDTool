@@ -7,8 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:DnDTool.Views.CharecterViews"
-    d:DesignHeight="500"
-    d:DesignWidth="900"
     mc:Ignorable="d">
     <UserControl.Resources>
         <Thickness x:Key="InfoMargin">0,5,0,5</Thickness>
@@ -26,12 +24,11 @@
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="67*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="165" />
-            <ColumnDefinition Width="235" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
@@ -43,13 +40,13 @@
         <Custom:ContentControlEx
             Grid.ColumnSpan="2"
             Margin="0"
-            Content="{Binding CharecterInfo}" />
+            Content="{Binding CharacterInfo}" />
         <Custom:ContentControlEx
             Grid.Row="1"
             Grid.RowSpan="1"
             Grid.Column="0"
-            Margin="0"
-            Content="{Binding CharecterAbilityScores}" />
+            Margin="0,10,0,0"
+            Content="{Binding CharacterAbilityScores}" />
 
 
 

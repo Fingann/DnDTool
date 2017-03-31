@@ -8,10 +8,7 @@ namespace DnDTool.Model.Character
 {
     public class Character
     {
-        public Character()
-        {
-            
-        }
+       
        public Info Info { get; set; }
 
         public AbilityScores AbilityScores { get; set; }
@@ -20,7 +17,7 @@ namespace DnDTool.Model.Character
 
         public Traits Traits { get; set;  }
 
-
+        
 
 
 

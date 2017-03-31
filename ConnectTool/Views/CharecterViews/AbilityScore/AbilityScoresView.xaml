@@ -5,127 +5,148 @@
     xmlns:converter="clr-namespace:DnDTool.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{StaticResource AbilityScores}"
-    d:DesignHeight="300"
     mc:Ignorable="d">
 
     <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--  note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want  -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
 
-        <Style
-            x:Key="InfoStyle"
-            BasedOn="{StaticResource {x:Type TextBox}}"
-            TargetType="TextBox">
-            <Setter Property="Margin" Value="0,0,5,0" />
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="TextWrapping" Value="Wrap" />
-            <Setter Property="MaxWidth" Value="150" />
-        </Style>
-        <Style
-            x:Key="PropertyStyle"
-            BasedOn="{StaticResource InfoStyle}"
-            TargetType="TextBox">
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="MinWidth" Value="20" />
-            <Setter Property="BorderThickness" Value="0" />
-
-        </Style>
-
-        <Style
-            x:Key="InfoLabelStyle"
-            BasedOn="{StaticResource {x:Type Label}}"
-            TargetType="Label">
-
-            <Setter Property="FontSize" Value="10" />
-            <Setter Property="Padding" Value="1" />
-        </Style>
-        <Style
-            x:Key="propertyLableSyle"
-            BasedOn="{StaticResource InfoLabelStyle}"
-            TargetType="Label">
-
-            <Setter Property="FontSize" Value="5" />
-            <Setter Property="Padding" Value="1" />
-        </Style>
-        <converter:PositiveNegativeColorConverter x:Key="PositiveNegativeColorConverter" />
+            <converter:PositiveNegativeColorConverter x:Key="PositiveNegativeColorConverter" />
+        </ResourceDictionary>
     </UserControl.Resources>
+    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1">
+        <Grid>
 
-    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
-            <WrapPanel>
-                <TextBox HorizontalContentAlignment="Center" Style="{StaticResource PropertyStyle}">200</TextBox>
-                <Label VerticalContentAlignment="Center" Style="{StaticResource propertyLableSyle}">
-                    Proficiency Bonus
-                </Label>
+
+            <WrapPanel
+                Grid.Column="0"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Center">
+                <TextBox
+                    HorizontalAlignment="Center"
+                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                    materialDesign:ValidationAssist.UsePopup="True"
+                    BorderThickness="0">
+                    <TextBox.Style>
+                        <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+                            <Setter Property="Text" Value="{Binding Path=ProficiencyBonus, StringFormat={}+{0} Proficiency Bonus}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter Property="Text" Value="{Binding Path=ProficiencyBonus, UpdateSourceTrigger=PropertyChanged}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+
             </WrapPanel>
 
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+                <TextBox
+                    HorizontalAlignment="Center"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
+                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                    materialDesign:ValidationAssist.UsePopup="True"
+                    BorderThickness="0">
+                    <TextBox.Style>
+                        <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+                            <Setter Property="Text" Value="{Binding Path=Inspiration, StringFormat={}{0} Inspiration}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter Property="Text" Value="{Binding Path=Inspiration, UpdateSourceTrigger=PropertyChanged}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <TextBox
+                    HorizontalAlignment="Center"
+                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                    materialDesign:ValidationAssist.UsePopup="True"
+                    BorderThickness="0">
+                    <TextBox.Style>
+                        <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+                            <Setter Property="Text" Value="{Binding Path=PassiveWisdom, StringFormat={}{0} Passive Wisdom}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter Property="Text" Value="{Binding Path=PassiveWisdom, UpdateSourceTrigger=PropertyChanged}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
-        </StackPanel>
-        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
-            <StackPanel>
-                <TextBox Style="{StaticResource PropertyStyle}">1</TextBox>
-                <Label VerticalContentAlignment="Center" Style="{StaticResource propertyLableSyle}">Passive Wisdom</Label>
             </StackPanel>
-            <StackPanel>
-                <TextBox Style="{StaticResource PropertyStyle}">200</TextBox>
-                <Label VerticalContentAlignment="Center" Style="{StaticResource propertyLableSyle}">Inspiration</Label>
-            </StackPanel>
-        </WrapPanel>
 
-        <ListView
-            Grid.Row="1"
-            Grid.RowSpan="1"
-            ItemsSource="{Binding Abilityscore}">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <!--<Border  BorderThickness="0,1,0,0" BorderBrush="Black" >-->
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="1*" />
-                        </Grid.ColumnDefinitions>
 
-                        <TextBox
-                            x:Name="Score"
-                            Margin="5,0,0,5"
-                            HorizontalContentAlignment="Right"
-                            BorderThickness="0"
-                            FontWeight="Bold"
-                            Foreground="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PositiveNegativeColorConverter}}"
-                            Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}" />
-                        <Label
-                            x:Name="AbilityScoreName"
-                            Grid.Column="1"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Top"
-                            Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
-                            FontSize="10"
-                            FontWeight="Bold" />
-                        <TextBox
-                            x:Name="Bonus"
-                            Grid.Column="2"
-                            Margin="0,0,5,5"
-                            BorderThickness="0"
-                            FontWeight="Bold"
-                            Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}" />
+            <ListView
+                Grid.Row="1"
+                Grid.RowSpan="1"
+                ItemsSource="{Binding Abilityscore}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
 
-                    </Grid>
-                    <!--</Border>-->
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<Border  BorderThickness="0,1,0,0" BorderBrush="Black" >-->
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox
+                                x:Name="Score"
+                                Margin="0,0,0,5"
+                                HorizontalContentAlignment="Right"
+                                materialDesign:ValidationAssist.UsePopup="True"
+                                BorderThickness="0"
+                                FontWeight="Bold"
+                                Foreground="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PositiveNegativeColorConverter}}"
+                                Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}" />
+                            <Label
+                                x:Name="AbilityScoreName"
+                                Grid.Column="1"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Top"
+                                Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                FontSize="10"
+                                FontWeight="Bold" />
+                            <TextBox
+                                x:Name="Bonus"
+                                Grid.Column="2"
+                                Margin="0,0,0,5"
+                                BorderThickness="0"
+                                FontWeight="Bold"
+                                Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}" />
+
+                        </Grid>
+                        <!--</Border>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </materialDesign:Card>
 </UserControl>

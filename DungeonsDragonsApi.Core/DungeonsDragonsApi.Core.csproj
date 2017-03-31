@@ -46,6 +46,21 @@
   <ItemGroup>
     <Compile Include="Models\Character Data\AbilityScore.cs" />
     <Compile Include="Models\Character Data\Proficiencies.cs" />
+    <Compile Include="Models\Character Data\SubClass.cs" />
+    <Compile Include="Models\Character Data\SubClasses.cs" />
+    <Compile Include="Models\Classes\Classes.cs" />
+    <Compile Include="Models\Classes\PlayerClass.cs" />
+    <Compile Include="Models\Classes\Races.cs" />
+    <Compile Include="Models\Equipment\Armor.cs" />
+    <Compile Include="Models\Equipment\Weapons.cs" />
+    <Compile Include="Models\Equipment\Equipments.cs" />
+    <Compile Include="Models\GameMechanics\Condition.cs" />
+    <Compile Include="Models\GameMechanics\Conditions.cs" />
+    <Compile Include="Models\GameMechanics\DamageType.cs" />
+    <Compile Include="Models\GameMechanics\DamageTypes.cs" />
+    <Compile Include="Models\GameMechanics\MagicSchool.cs" />
+    <Compile Include="Models\GameMechanics\MagicSchools.cs" />
+    <Compile Include="Models\Shared\Cost.cs" />
     <Compile Include="Models\Shared\Result.cs" />
     <Compile Include="Models\Spells\SpellNames.cs" />
     <Compile Include="Models\Spells\Spell.cs" />
