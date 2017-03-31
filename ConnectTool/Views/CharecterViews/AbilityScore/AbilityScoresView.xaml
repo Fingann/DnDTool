@@ -22,7 +22,7 @@
             <converter:PositiveNegativeColorConverter x:Key="PositiveNegativeColorConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
-    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1">
+    
         <Grid>
 
             <Grid.RowDefinitions>
@@ -148,5 +148,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-    </materialDesign:Card>
+    
 </UserControl>

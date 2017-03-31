@@ -42,7 +42,7 @@
 
         </ResourceDictionary>
     </UserControl.Resources>
-    <materialDesign:Card Padding="1">
+  
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -101,9 +101,16 @@
                 <ComboBox
                     Grid.Row="2"
                     Grid.Column="0"
+                    Margin="0,0,5,0"
                     materialDesign:HintAssist.Hint="Search"
                     materialDesign:HintAssist.HintOpacity=".26"
-                    IsEditable="True" />
+                    IsEditable="True" >
+                    <ComboBoxItem>Human</ComboBoxItem>
+                    <ComboBoxItem>Orc</ComboBoxItem>
+                    <ComboBoxItem>Dwarf</ComboBoxItem>
+                    <ComboBoxItem>Halfling</ComboBoxItem>
+                    <ComboBoxItem>Elf</ComboBoxItem>
+                </ComboBox>
                 <!--<TextBox
                 x:Name="Race"
                 Grid.Row="2"
@@ -168,5 +175,5 @@
 
             </Grid>
         </Grid>
-    </materialDesign:Card>
+  
 </UserControl>

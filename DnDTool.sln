@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonsDragonsApi.Core", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonsDragonsApiTests", "DungeonsDragonsApiTests\DungeonsDragonsApiTests.csproj", "{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDToolTests", "DnDToolTests\DnDToolTests.csproj", "{C4BCFE65-ACBD-45EF-9653-FC8A17E67EC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B67E57B-BB1F-4B49-A930-1AA445E96DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4BCFE65-ACBD-45EF-9653-FC8A17E67EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4BCFE65-ACBD-45EF-9653-FC8A17E67EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4BCFE65-ACBD-45EF-9653-FC8A17E67EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4BCFE65-ACBD-45EF-9653-FC8A17E67EC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

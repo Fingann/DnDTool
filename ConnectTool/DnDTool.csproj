@@ -116,6 +116,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\PositiveNegativeColorConverter.cs" />
+    <Compile Include="Core\Levling\CharacterAdvancement.cs" />
+    <Compile Include="Core\Levling\LevelTool.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Interface\IDisplayable.cs" />
     <Compile Include="Interface\INavigationView.cs" />
@@ -222,9 +224,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Images\Stormtrouper.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

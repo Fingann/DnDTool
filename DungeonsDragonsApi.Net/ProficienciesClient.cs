@@ -14,11 +14,11 @@ namespace DungeonsDragonsApi.Net
             restClient = new RestClient(new Uri("http://dnd5eapi.co/api"));
         }
 
-        public RootObject GetProficiencyAll()
+        public Proficiencies GetProficiencyAll()
         {
             IRestRequest restRequest = new RestRequest("ability-scores/", Method.GET);
             restRequest.OnBeforeDeserialization = resp => { resp.ContentType = "application/json"; };
-            var test = this.restClient.Execute<RootObject>(restRequest).Data;
+            var test = this.restClient.Execute<Proficiencies>(restRequest).Data;
             return test;
         }
 
