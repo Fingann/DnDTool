@@ -2,30 +2,87 @@
     x:Class="DnDTool.Views.CharecterViews.AbilityScoresView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:DnDTool.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{StaticResource AbilityScores}"
-    d:DesignHeight="400"
-    d:DesignWidth="300"
+    d:DesignHeight="300"
     mc:Ignorable="d">
 
     <UserControl.Resources>
+
         <Style
-            x:Name="Score"
+            x:Key="InfoStyle"
             BasedOn="{StaticResource {x:Type TextBox}}"
             TargetType="TextBox">
+            <Setter Property="Margin" Value="0,0,5,0" />
             <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="MaxWidth" Value="150" />
         </Style>
+        <Style
+            x:Key="PropertyStyle"
+            BasedOn="{StaticResource InfoStyle}"
+            TargetType="TextBox">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="MinWidth" Value="20" />
+            <Setter Property="BorderThickness" Value="0" />
+
+        </Style>
+
+        <Style
+            x:Key="InfoLabelStyle"
+            BasedOn="{StaticResource {x:Type Label}}"
+            TargetType="Label">
+
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="Padding" Value="1" />
+        </Style>
+        <Style
+            x:Key="propertyLableSyle"
+            BasedOn="{StaticResource InfoLabelStyle}"
+            TargetType="Label">
+
+            <Setter Property="FontSize" Value="5" />
+            <Setter Property="Padding" Value="1" />
+        </Style>
+        <converter:PositiveNegativeColorConverter x:Key="PositiveNegativeColorConverter" />
     </UserControl.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="47*" />
-            <RowDefinition Height="353*" />
-        </Grid.RowDefinitions>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding Abilityscore}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+            <WrapPanel>
+                <TextBox HorizontalContentAlignment="Center" Style="{StaticResource PropertyStyle}">200</TextBox>
+                <Label VerticalContentAlignment="Center" Style="{StaticResource propertyLableSyle}">
+                    Proficiency Bonus
+                </Label>
+            </WrapPanel>
+
+
+        </StackPanel>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+            <StackPanel>
+                <TextBox Style="{StaticResource PropertyStyle}">1</TextBox>
+                <Label VerticalContentAlignment="Center" Style="{StaticResource propertyLableSyle}">Passive Wisdom</Label>
+            </StackPanel>
+            <StackPanel>
+                <TextBox Style="{StaticResource PropertyStyle}">200</TextBox>
+                <Label VerticalContentAlignment="Center" Style="{StaticResource propertyLableSyle}">Inspiration</Label>
+            </StackPanel>
+        </WrapPanel>
+
+        <ListView
+            Grid.Row="1"
+            Grid.RowSpan="1"
+            ItemsSource="{Binding Abilityscore}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -45,6 +102,9 @@
                             x:Name="Score"
                             Margin="5,0,0,5"
                             HorizontalContentAlignment="Right"
+                            BorderThickness="0"
+                            FontWeight="Bold"
+                            Foreground="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PositiveNegativeColorConverter}}"
                             Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}" />
                         <Label
                             x:Name="AbilityScoreName"
@@ -58,6 +118,8 @@
                             x:Name="Bonus"
                             Grid.Column="2"
                             Margin="0,0,5,5"
+                            BorderThickness="0"
+                            FontWeight="Bold"
                             Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}" />
 
                     </Grid>

@@ -2,9 +2,11 @@
     x:Class="DnDTool.Views.CharecterViews.CharecterInfoView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:DnDTool.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{StaticResource info}"
     d:DesignHeight="100"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -16,6 +18,7 @@
             <Setter Property="Margin" Value="0,0,5,0" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="MaxWidth" Value="150" />
         </Style>
         <Style
             x:Key="InfoLabelStyle"
@@ -25,6 +28,7 @@
             <Setter Property="FontSize" Value="10" />
             <Setter Property="Padding" Value="1" />
         </Style>
+        <converter:PositiveNegativeColorConverter x:Key="NameConverter" />
     </UserControl.Resources>
 
     <Grid>
@@ -33,10 +37,22 @@
             <ColumnDefinition Width="291*" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0">
+
             <Image
+                x:Name="CharacterImage"
                 Width="100"
                 Height="100"
                 Source="/Resources/Images/Stormtrouper.jpg" />
+            <TextBox
+                MinWidth="25"
+                MaxWidth="{Binding ElementName=CharacterImage, Path=ActualWidth}"
+                Margin="0,0,7,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                FontSize="30"
+                FontWeight="Bold"
+                Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" />
 
         </Grid>
         <Grid
@@ -57,22 +73,23 @@
                 <RowDefinition Height="1*" />
 
             </Grid.RowDefinitions>
-            <TextBox
-                x:Name="ClassLevel"
-                Style="{StaticResource InfoStyle}"
-                Text="Barbarian 50" />
+            <TextBox x:Name="ClassLevel" Style="{StaticResource InfoStyle}">
+                <TextBox.Text>
+                    <Binding Path="Class" />
+                </TextBox.Text>
+            </TextBox>
             <Label
                 x:Name="ClassLevelLabel"
                 Grid.Row="1"
                 Grid.Column="0"
-                Content="Class Level"
+                Content="Class"
                 Style="{StaticResource InfoLabelStyle}" />
             <TextBox
                 x:Name="Race"
                 Grid.Row="2"
                 Grid.Column="0"
                 Style="{StaticResource InfoStyle}"
-                Text="Half-Orc" />
+                Text="{Binding Race, UpdateSourceTrigger=PropertyChanged}" />
             <Label
                 x:Name="RaceLabel"
                 Grid.Row="3"
@@ -84,7 +101,7 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{StaticResource InfoStyle}"
-                Text="Pirate" />
+                Text="{Binding Background, UpdateSourceTrigger=PropertyChanged}" />
             <Label
                 x:Name="BackgroundLabel"
                 Grid.Row="1"
@@ -97,19 +114,19 @@
                 Grid.Row="0"
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
-                Text="EliteZodiaC" />
+                Text="{Binding CharecterName, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 x:Name="Allignment"
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{StaticResource InfoStyle}"
-                Text="Natural Evil" />
+                Text="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 x:Name="ExperiencePoints"
                 Grid.Row="2"
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
-                Text="Half-Orc" />
+                Text="{Binding ExperiancePoints, UpdateSourceTrigger=PropertyChanged}" />
             <Label
                 x:Name="AllignmentLabel"
                 Grid.Row="3"

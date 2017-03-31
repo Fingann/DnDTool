@@ -115,6 +115,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\PositiveNegativeColorConverter.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Interface\IDisplayable.cs" />
     <Compile Include="Interface\INavigationView.cs" />

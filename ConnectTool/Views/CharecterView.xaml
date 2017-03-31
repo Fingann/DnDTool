@@ -25,13 +25,14 @@
     </UserControl.DataContext>
     <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*" />
-            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="67*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="400*" />
+            <ColumnDefinition Width="165" />
+            <ColumnDefinition Width="235" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
 
@@ -45,6 +46,7 @@
             Content="{Binding CharecterInfo}" />
         <Custom:ContentControlEx
             Grid.Row="1"
+            Grid.RowSpan="1"
             Grid.Column="0"
             Margin="0"
             Content="{Binding CharecterAbilityScores}" />

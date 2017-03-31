@@ -69,10 +69,6 @@
       <Project>{a4dd8b6d-cc35-4ac0-b917-b5443e6040fd}</Project>
       <Name>DungeonsDragonsApi.Net</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DungeonsDragonsApi\DungeonsDragonsApi.csproj">
-      <Project>{d1a72770-e704-4d6c-ad65-7853b427c9a9}</Project>
-      <Name>DungeonsDragonsApi</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
