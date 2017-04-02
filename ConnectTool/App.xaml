@@ -15,8 +15,7 @@
         <ResourceDictionary>
             <!--  Global View Model Locator  -->
             <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
-            <char:Info x:Key="info" />
-            <char:AbilityScores x:Key="AbilityScores" />
+           
             <!--  MahApps Brushes  -->
             <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}" />
             <SolidColorBrush x:Key="AccentColorBrush" Color="{DynamicResource Primary500}" />

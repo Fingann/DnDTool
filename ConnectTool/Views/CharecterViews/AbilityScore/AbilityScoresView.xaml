@@ -4,14 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converter="clr-namespace:DnDTool.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:context="clr-namespace:DnDTool.ViewModel.CharacterModels.AbilityScore"
     xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DataContext="{StaticResource AbilityScores}"
-    mc:Ignorable="d">
-
+    
+    mc:Ignorable="d" Height="265" Width="313">
+    <UserControl.DataContext>
+        <context:AbilityScoresViewModel/>
+    </UserControl.DataContext>
     <UserControl.Resources>
         <ResourceDictionary>
+
             <ResourceDictionary.MergedDictionaries>
                 <!--  note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want  -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
@@ -22,102 +26,102 @@
             <converter:PositiveNegativeColorConverter x:Key="PositiveNegativeColorConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
-    
-        <Grid>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+    <Grid>
 
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
 
 
-            <WrapPanel
+        <WrapPanel
                 Grid.Column="0"
                 Margin="0,0,0,0"
                 HorizontalAlignment="Center">
-                <TextBox
+            <TextBox
                     HorizontalAlignment="Center"
                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                     materialDesign:ValidationAssist.UsePopup="True"
                     BorderThickness="0">
-                    <TextBox.Style>
-                        <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
-                            <Setter Property="Text" Value="{Binding Path=ProficiencyBonus, StringFormat={}+{0} Proficiency Bonus}" />
-                            <Style.Triggers>
-                                <Trigger Property="IsFocused" Value="True">
-                                    <Setter Property="Text" Value="{Binding Path=ProficiencyBonus, UpdateSourceTrigger=PropertyChanged}" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
+                <TextBox.Style>
+                    <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+                        <Setter Property="Text" Value="{Binding Path=AbilityScores.ProficiencyBonus, StringFormat={}+{0} Proficiency Bonus}" />
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Text" Value="{Binding Path=AbilityScores.ProficiencyBonus, UpdateSourceTrigger=PropertyChanged}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
 
-            </WrapPanel>
+        </WrapPanel>
 
-            <StackPanel Grid.Row="2" HorizontalAlignment="Center">
-                <TextBox
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+            <TextBox
                     HorizontalAlignment="Center"
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                     materialDesign:ValidationAssist.UsePopup="True"
                     BorderThickness="0">
-                    <TextBox.Style>
-                        <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
-                            <Setter Property="Text" Value="{Binding Path=Inspiration, StringFormat={}{0} Inspiration}" />
-                            <Style.Triggers>
-                                <Trigger Property="IsFocused" Value="True">
-                                    <Setter Property="Text" Value="{Binding Path=Inspiration, UpdateSourceTrigger=PropertyChanged}" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
-                <TextBox
+                <TextBox.Style>
+                    <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+                        <Setter Property="Text" Value="{Binding Path=AbilityScores.Inspiration, StringFormat={}{0} Inspiration}" />
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Text" Value="{Binding Path=AbilityScores.Inspiration, UpdateSourceTrigger=PropertyChanged}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <TextBox
                     HorizontalAlignment="Center"
                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                     materialDesign:ValidationAssist.UsePopup="True"
                     BorderThickness="0">
-                    <TextBox.Style>
-                        <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
-                            <Setter Property="Text" Value="{Binding Path=PassiveWisdom, StringFormat={}{0} Passive Wisdom}" />
-                            <Style.Triggers>
-                                <Trigger Property="IsFocused" Value="True">
-                                    <Setter Property="Text" Value="{Binding Path=PassiveWisdom, UpdateSourceTrigger=PropertyChanged}" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
-
-            </StackPanel>
-
-
-            <ListView
-                Grid.Row="1"
-                Grid.RowSpan="1"
-                ItemsSource="{Binding Abilityscore}">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <TextBox.Style>
+                    <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+                        <Setter Property="Text" Value="{Binding Path=AbilityScores.PassiveWisdom, StringFormat={}{0} Passive Wisdom}" />
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Text" Value="{Binding Path=AbilityScores.PassiveWisdom, UpdateSourceTrigger=PropertyChanged}" />
+                            </Trigger>
+                        </Style.Triggers>
                     </Style>
-                </ListView.ItemContainerStyle>
+                </TextBox.Style>
+            </TextBox>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--<Border  BorderThickness="0,1,0,0" BorderBrush="Black" >-->
+        </StackPanel>
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="1*" />
-                            </Grid.ColumnDefinitions>
 
-                            <TextBox
+        <ListView
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                ItemsSource="{Binding  AbilityScores.Abilityscore}" Margin="0,0,0,-180">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<Border  BorderThickness="0,1,0,0" BorderBrush="Black" >-->
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
                                 x:Name="Score"
                                 Margin="0,0,0,5"
                                 HorizontalContentAlignment="Right"
@@ -126,7 +130,7 @@
                                 FontWeight="Bold"
                                 Foreground="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PositiveNegativeColorConverter}}"
                                 Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}" />
-                            <Label
+                        <Label
                                 x:Name="AbilityScoreName"
                                 Grid.Column="1"
                                 HorizontalContentAlignment="Center"
@@ -134,7 +138,7 @@
                                 Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                                 FontSize="10"
                                 FontWeight="Bold" />
-                            <TextBox
+                        <TextBox
                                 x:Name="Bonus"
                                 Grid.Column="2"
                                 Margin="0,0,0,5"
@@ -142,11 +146,11 @@
                                 FontWeight="Bold"
                                 Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}" />
 
-                        </Grid>
-                        <!--</Border>-->
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
-    
+                    </Grid>
+                    <!--</Border>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
 </UserControl>

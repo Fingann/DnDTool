@@ -8,11 +8,17 @@
 
 // ReSharper disable StyleCop.SA1600
 
+using System;
+using DnDTool.Core;
+using DnDTool.Core.Strategy;
+using DnDTool.ViewModel.CharacterModels;
+using DnDTool.ViewModel.CharacterModels.AbilityScore;
+
 namespace DnDTool.ViewModel
 {
-    using DnDTool.Interface;
-    using DnDTool.Model.Character;
-    using DnDTool.Model.Services;
+    using Interface;
+    using Model.Character;
+    using Model.Services;
 
     using GalaSoft.MvvmLight;
 
@@ -23,9 +29,10 @@ namespace DnDTool.ViewModel
     {
         private Character character;
 
-        private AbilityScores characterAbilityScores;
+        private AbilityScoresViewModel characterAbilityScores;
 
-        private Info characterInfo = new Info();
+        private InfoViewModel characterInfo;
+        private CharacterManager characterManager { get;  }
 
         public CharacterViewModel(
             IDataService dataservice,
@@ -44,6 +51,15 @@ namespace DnDTool.ViewModel
 
                         this.Character = character;
                     });
+            characterManager = new CharacterManager(Character);
+            MessengerInstance.Register<UpdateStrategy>(this, UpdateCharacter);
+        }
+
+        private void UpdateCharacter(UpdateStrategy a)
+        {
+            characterManager.SetUpdateStrategy(a);
+            characterManager.Update();
+            this.RaisePropertyChanged("Character");
         }
 
         public IDataService _dataService { get; set; }
@@ -58,17 +74,17 @@ namespace DnDTool.ViewModel
             set
             {
                 this.character = value;
-                this.characterInfo = value.Info;
+                this.characterInfo = new InfoViewModel(value.Info);
                 this.RaisePropertyChanged("CharacterInfo");
 
-                this.CharacterAbilityScores = value.AbilityScores;
+                this.CharacterAbilityScores = new AbilityScoresViewModel(value.AbilityScores);
                 this.RaisePropertyChanged("CharacterAbilityScores");
 
                 this.RaisePropertyChanged();
             }
         }
 
-        public AbilityScores CharacterAbilityScores
+        public AbilityScoresViewModel CharacterAbilityScores
         {
             get
             {
@@ -82,7 +98,7 @@ namespace DnDTool.ViewModel
             }
         }
 
-        public Info CharacterInfo
+        public InfoViewModel CharacterInfo
         {
             get
             {

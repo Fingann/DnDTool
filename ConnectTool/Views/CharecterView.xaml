@@ -3,19 +3,21 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
-    xmlns:charModel="clr-namespace:DnDTool.Model.Character"
+    xmlns:infoViewModels="clr-namespace:DnDTool.ViewModel.CharacterModels"
+    xmlns:abilityScoreViewModel="clr-namespace:DnDTool.ViewModel.CharacterModels.AbilityScore"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:DnDTool.Views.CharecterViews"
+    xmlns:character="clr-namespace:DnDTool.Model.Character;assembly=DnDTool.Core"
     mc:Ignorable="d"
     d:DesignHeight="500"
     d:DesignWidth="900">
     <UserControl.Resources>
         <Thickness x:Key="InfoMargin">0,5,0,5</Thickness>
-        <DataTemplate DataType="{x:Type charModel:Info}">
-            <views:CharecterInfoView />
+        <DataTemplate DataType="{x:Type infoViewModels:InfoViewModel}">
+            <views:InfoView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type charModel:AbilityScores}">
+        <DataTemplate DataType="{x:Type abilityScoreViewModel:AbilityScoresViewModel}">
             <views:AbilityScoresView />
         </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />

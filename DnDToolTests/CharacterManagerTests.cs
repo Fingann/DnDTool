@@ -59,7 +59,8 @@ namespace DnDToolTests
         public void CharacterManagerTest()
         {
             CharacterManager charManager = new CharacterManager(Character);
-            charManager.SetSortStrategy(new LevelUpdate());
+            charManager.SetUpdateStrategy(new LevelUpdate());
+            charManager.Update();
         }
     }
 }

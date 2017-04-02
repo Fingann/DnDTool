@@ -68,6 +68,10 @@
       <Project>{7f5af1e4-7fbe-4e32-8c25-ee2d1a01aca0}</Project>
       <Name>DnDTool</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DnDTool.Core\DnDTool.Core.csproj">
+      <Project>{EFC1FA2F-5CA8-46C3-91C9-8B732C41E3E1}</Project>
+      <Name>DnDTool.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

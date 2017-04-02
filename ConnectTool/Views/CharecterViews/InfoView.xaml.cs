@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DnDTool.Views.CharecterViews
 {
     /// <summary>
-    /// Interaction logic for CharecterInfoView.xaml
+    /// Interaction logic for InfoView.xaml
     /// </summary>
-    public partial class CharecterInfoView : UserControl
+    public partial class InfoView : UserControl
     {
-        public CharecterInfoView()
+        public InfoView()
         {
             InitializeComponent();
         }

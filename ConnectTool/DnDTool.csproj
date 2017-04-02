@@ -116,24 +116,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\PositiveNegativeColorConverter.cs" />
-    <Compile Include="Core\CharacterManager.cs" />
-    <Compile Include="Core\Levling\CharacterAdvancement.cs" />
-    <Compile Include="Core\Levling\LevelTool.cs" />
-    <Compile Include="Core\Strategy\UpdateStrategy.cs" />
-    <Compile Include="Core\Strategy\Update\LevelUpdate.cs" />
-    <Compile Include="Core\Strategy\Update\ProficiencyBonusUpdate.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Interface\IDisplayable.cs" />
     <Compile Include="Interface\INavigationView.cs" />
-    <Compile Include="Model\Character\AbilityScore.cs" />
-    <Compile Include="Model\Character\AbilityScores.cs" />
-    <Compile Include="Model\Character\Attributs.cs" />
-    <Compile Include="Model\Character\Character.cs" />
-    <Compile Include="Model\Character\Info.cs" />
-    <Compile Include="Model\Character\Skills.cs" />
-    <Compile Include="Model\Character\Traits.cs" />
-    <Compile Include="Model\Character\Weapon.cs" />
-    <Compile Include="Model\Character\Weapons.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\MenuItem.cs" />
     <Compile Include="Model\Services\DataService.cs" />
@@ -147,7 +132,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>UserSettings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CharacterModels\AbilityScore\AbilityScoresViewModel.cs" />
     <Compile Include="ViewModel\CharacterViewModel.cs" />
+    <Compile Include="ViewModel\CharacterModels\InfoViewModel.cs" />
     <Compile Include="ViewModel\InventoryViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -252,6 +239,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DnDTool.Core\DnDTool.Core.csproj">
+      <Project>{efc1fa2f-5ca8-46c3-91c9-8b732c41e3e1}</Project>
+      <Name>DnDTool.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DungeonsDragonsApi.Core\DungeonsDragonsApi.Core.csproj">
       <Project>{93638b6d-4649-4adb-b854-1f9d41e5837d}</Project>
       <Name>DungeonsDragonsApi.Core</Name>
