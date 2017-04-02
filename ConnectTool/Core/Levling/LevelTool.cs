@@ -6,7 +6,7 @@ namespace DnDTool.Core.Levling
 {
     public static class LevelTool
     {
-        private static List<CharacterAdvancement> ExperienceLevels = new List<CharacterAdvancement>
+        private static List<CharacterAdvancement> ExperienceAdvancments = new List<CharacterAdvancement>
         {
             new CharacterAdvancement(0, 1, 2),
             new CharacterAdvancement(300, 2, 2),
@@ -15,7 +15,6 @@ namespace DnDTool.Core.Levling
             new CharacterAdvancement(6500, 5, 3),
             new CharacterAdvancement(14000, 6, 3),
             new CharacterAdvancement(23000, 7, 3),
-            
             new CharacterAdvancement(34000, 8, 3),
             new CharacterAdvancement(48000, 9, 3),
             new CharacterAdvancement(64000, 10, 3),
@@ -35,7 +34,13 @@ namespace DnDTool.Core.Levling
         public static int GetLevel(int experiance)
         {
             //Finds the first level greater then experiance and returns the level before
-            return ExperienceLevels.First(x => Math.Max(x.Experiance, experiance) != experiance).Level -1;
+            return ExperienceAdvancments.First(x => Math.Max(x.Experiance, experiance) != experiance).Level -1;
+        }
+
+        public static int GetProficiencyBonus(int experiance)
+        {
+            var index = ExperienceAdvancments.FindIndex(x => Math.Max(x.Experiance, experiance) != experiance) - 1;
+            return ExperienceAdvancments[index].ProficiencyBonus;
         }
 
         }

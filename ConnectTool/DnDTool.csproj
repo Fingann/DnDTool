@@ -116,8 +116,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\PositiveNegativeColorConverter.cs" />
+    <Compile Include="Core\CharacterManager.cs" />
     <Compile Include="Core\Levling\CharacterAdvancement.cs" />
     <Compile Include="Core\Levling\LevelTool.cs" />
+    <Compile Include="Core\Strategy\UpdateStrategy.cs" />
+    <Compile Include="Core\Strategy\Update\LevelUpdate.cs" />
+    <Compile Include="Core\Strategy\Update\ProficiencyBonusUpdate.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Interface\IDisplayable.cs" />
     <Compile Include="Interface\INavigationView.cs" />

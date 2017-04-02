@@ -8,6 +8,7 @@ namespace DnDTool.Core.Levling
 {
     class CharacterAdvancement
     {
+        
         public CharacterAdvancement(int experiance, int level, int proficiencyBonus)
         {
             Experiance = experiance;
