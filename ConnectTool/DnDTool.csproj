@@ -121,6 +121,7 @@
     <Compile Include="Interface\INavigationView.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\MenuItem.cs" />
+    <Compile Include="Model\Messages\DisplayCharacterMessage.cs" />
     <Compile Include="Model\Services\DataService.cs" />
     <Compile Include="Model\Services\IDataService.cs" />
     <Compile Include="Model\Services\INavigationService.cs" />
@@ -135,7 +136,6 @@
     <Compile Include="ViewModel\CharacterModels\AbilityScore\AbilityScoresViewModel.cs" />
     <Compile Include="ViewModel\CharacterViewModel.cs" />
     <Compile Include="ViewModel\CharacterModels\InfoViewModel.cs" />
-    <Compile Include="ViewModel\InventoryViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\CharecterView.xaml.cs">
@@ -146,9 +146,6 @@
     </Compile>
     <Compile Include="Views\CharecterViews\InfoView.xaml.cs">
       <DependentUpon>InfoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginView.xaml.cs">
-      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -175,10 +172,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CharecterViews\InfoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

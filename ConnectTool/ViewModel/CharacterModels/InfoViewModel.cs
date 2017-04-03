@@ -1,28 +1,30 @@
-﻿using DnDTool.Model.Character;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 
 namespace DnDTool.ViewModel.CharacterModels
 {
+    using DnDTool.Core.Model.Character;
+    using DnDTool.Model.Messages;
+
+    using GalaSoft.MvvmLight.Ioc;
+
     public class InfoViewModel : ViewModelBase
     {
-        public InfoViewModel()
-        {
-            
-        }
-        public InfoViewModel(Info info)
-        {
-            Info = info;
-        }
+        private Info info;
 
-        private Info _info;
+        public InfoViewModel(Info character)
+        {
+            Info = character;
+        }
 
         public Info Info
         {
-            get { return _info; }
+            get
+            {
+                return this.info;
+            }
             set
             {
-                _info = value;
-                RaisePropertyChanged();
+                this.info = value;
             }
         }
     }

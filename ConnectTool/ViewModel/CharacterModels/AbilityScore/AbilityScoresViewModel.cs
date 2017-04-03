@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DnDTool.Model.Character;
 
 namespace DnDTool.ViewModel.CharacterModels.AbilityScore
 {
+    using DnDTool.Core.Model.Character;
+
+    using GalaSoft.MvvmLight.Ioc;
+
     public class AbilityScoresViewModel
     {
+        [PreferredConstructor]
         public AbilityScoresViewModel()
         {
             

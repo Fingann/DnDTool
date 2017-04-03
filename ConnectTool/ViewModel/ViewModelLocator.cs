@@ -17,6 +17,9 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace DnDTool.ViewModel
 {
+    using DnDTool.ViewModel.CharacterModels;
+    using DnDTool.ViewModel.CharacterModels.AbilityScore;
+
     /// <summary>
     /// This class contains static references to all the view models in the
     /// application and provides an entry point for the bindings.
@@ -48,8 +51,9 @@ namespace DnDTool.ViewModel
             SimpleIoc.Default.Register<Model.Services.INavigationService, NavigationService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<InventoryViewModel>();
             SimpleIoc.Default.Register<CharacterViewModel>();
+            //SimpleIoc.Default.Register<InfoViewModel>();
+            //SimpleIoc.Default.Register<AbilityScoresViewModel>();
         }
 
         /// <summary>
@@ -66,16 +70,10 @@ namespace DnDTool.ViewModel
             }
         }
 
-        /// <summary>
-        /// Gets the login.
-        /// </summary>
-        public InventoryViewModel Login
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<InventoryViewModel>();
-            }
-        }
+       
+
+        
+
 
         /// <summary>
         /// Gets the caller.
@@ -87,6 +85,11 @@ namespace DnDTool.ViewModel
                 return ServiceLocator.Current.GetInstance<CharacterViewModel>();
             }
         }
+
+      
+        //public InfoViewModel Info => ServiceLocator.Current.GetInstance<InfoViewModel>();
+
+        //public AbilityScoresViewModel Ability => ServiceLocator.Current.GetInstance<AbilityScoresViewModel>();
 
         /// <summary>
         /// Cleans up all the resources.

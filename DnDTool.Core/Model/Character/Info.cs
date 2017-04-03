@@ -1,4 +1,4 @@
-﻿namespace DnDTool.Model.Character
+﻿namespace DnDTool.Core.Model.Character
 {
   
 

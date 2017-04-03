@@ -14,7 +14,7 @@ using DnDTool.Interface;
 
 namespace DnDTool.Model.Services
 {
-    using DnDTool.Model.Character;
+    using DnDTool.Core.Model.Character;
 
     /// <summary>
     /// The data service.

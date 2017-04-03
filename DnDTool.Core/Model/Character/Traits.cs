@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DnDTool.Model.Character
+﻿namespace DnDTool.Core.Model.Character
 {
     public class Traits
     {

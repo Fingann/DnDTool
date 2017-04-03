@@ -16,7 +16,7 @@ using DnDTool.Model.Services;
 
 namespace DnDTool.Design
 {
-    using DnDTool.Model.Character;
+    using DnDTool.Core.Model.Character;
 
     using DungeonsDragonsApi.Core.Models;
 

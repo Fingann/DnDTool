@@ -16,8 +16,10 @@ using DnDTool.ViewModel.CharacterModels.AbilityScore;
 
 namespace DnDTool.ViewModel
 {
+    using DnDTool.Core.Model.Character;
+
     using Interface;
-    using Model.Character;
+
     using Model.Services;
 
     using GalaSoft.MvvmLight;
@@ -29,9 +31,6 @@ namespace DnDTool.ViewModel
     {
         private Character character;
 
-        private AbilityScoresViewModel characterAbilityScores;
-
-        private InfoViewModel characterInfo;
         private CharacterManager characterManager { get;  }
 
         public CharacterViewModel(
@@ -51,6 +50,7 @@ namespace DnDTool.ViewModel
 
                         this.Character = character;
                     });
+            
             characterManager = new CharacterManager(Character);
             MessengerInstance.Register<UpdateStrategy>(this, UpdateCharacter);
         }
@@ -74,43 +74,11 @@ namespace DnDTool.ViewModel
             set
             {
                 this.character = value;
-                this.characterInfo = new InfoViewModel(value.Info);
-                this.RaisePropertyChanged("CharacterInfo");
-
-                this.CharacterAbilityScores = new AbilityScoresViewModel(value.AbilityScores);
-                this.RaisePropertyChanged("CharacterAbilityScores");
-
                 this.RaisePropertyChanged();
             }
         }
 
-        public AbilityScoresViewModel CharacterAbilityScores
-        {
-            get
-            {
-                return this.characterAbilityScores;
-            }
-
-            set
-            {
-                this.characterAbilityScores = value;
-                this.RaisePropertyChanged();
-            }
-        }
-
-        public InfoViewModel CharacterInfo
-        {
-            get
-            {
-                return this.characterInfo;
-            }
-
-            set
-            {
-                this.characterInfo = value;
-                this.RaisePropertyChanged();
-            }
-        }
+       
 
         public object Parameter { get; set; }
 

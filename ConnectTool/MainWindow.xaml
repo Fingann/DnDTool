@@ -51,9 +51,9 @@
 
             </Style>
 
-            <DataTemplate DataType="{x:Type vm:InventoryViewModel}">
+            <!--<DataTemplate DataType="{x:Type vm:InventoryViewModel}">
                 <views:LoginView />
-            </DataTemplate>
+            </DataTemplate>-->
 
             <DataTemplate DataType="{x:Type vm:CharacterViewModel}">
                 <views:CharecterView />

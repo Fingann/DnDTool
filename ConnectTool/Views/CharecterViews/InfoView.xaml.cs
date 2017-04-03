@@ -22,7 +22,7 @@ namespace DnDTool.Views.CharecterViews
     {
         public InfoView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

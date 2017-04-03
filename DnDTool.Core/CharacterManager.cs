@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DnDTool.Core.Strategy;
-using DnDTool.Model.Character;
 
 namespace DnDTool.Core
 {
+    using DnDTool.Core.Model.Character;
+
     public class CharacterManager
     {
         private Character character { get; set; }

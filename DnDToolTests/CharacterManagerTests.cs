@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using DnDTool.Core;
 using DnDTool.Core.Strategy.Update;
-using DnDTool.Model.Character;
+
 using NUnit.Framework;
 
 namespace DnDToolTests
 {
+    using DnDTool.Core.Model.Character;
+
     [TestFixture]
     class CharacterManagerTests
     {
