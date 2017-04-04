@@ -7,20 +7,13 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 // ReSharper disable StyleCop.SA1600
-
-using System;
-using DnDTool.Core;
-using DnDTool.Core.Strategy;
-using DnDTool.ViewModel.CharacterModels;
-using DnDTool.ViewModel.CharacterModels.AbilityScore;
-
 namespace DnDTool.ViewModel
 {
     using DnDTool.Core.Model.Character;
-
-    using Interface;
-
-    using Model.Services;
+    using DnDTool.Interface;
+    using DnDTool.Model.Services;
+    using DnDTool.ViewModel.CharacterModels;
+    using DnDTool.ViewModel.CharacterModels.AbilityScore;
 
     using GalaSoft.MvvmLight;
 
@@ -29,9 +22,11 @@ namespace DnDTool.ViewModel
     /// </summary>
     public class CharacterViewModel : ViewModelBase, INavigationView, IDisplayable
     {
+        private AbilityScoresViewModel abilityScoresViewModel;
+
         private Character character;
 
-        private CharacterManager characterManager { get;  }
+        private InfoViewModel infoViewModel = new InfoViewModel();
 
         public CharacterViewModel(
             IDataService dataservice,
@@ -40,7 +35,8 @@ namespace DnDTool.ViewModel
         {
             this._navigationService = navigationService;
             this._notificationService = notificationService;
-
+            abilityScoresViewModel = new AbilityScoresViewModel();
+            InfoViewModel =new InfoViewModel();
             // this.DisplayNotificationCommand = new RelayCommand(this.DisplayNotification);
             this._dataService = dataservice;
             this._dataService.GetCharecter(
@@ -50,19 +46,25 @@ namespace DnDTool.ViewModel
 
                         this.Character = character;
                     });
-            
-            characterManager = new CharacterManager(Character);
-            MessengerInstance.Register<UpdateStrategy>(this, UpdateCharacter);
-        }
-
-        private void UpdateCharacter(UpdateStrategy a)
-        {
-            characterManager.SetUpdateStrategy(a);
-            characterManager.Update();
-            this.RaisePropertyChanged("Character");
+            abilityScoresViewModel = new AbilityScoresViewModel() {AbilityScores = this.character.AbilityScores};
+            InfoViewModel = new InfoViewModel() {Info = this.character.Info};
         }
 
         public IDataService _dataService { get; set; }
+
+        public AbilityScoresViewModel AbilityScoresViewModel
+        {
+            get
+            {
+                return this.abilityScoresViewModel;
+            }
+
+            set
+            {
+                this.abilityScoresViewModel = value;
+                this.RaisePropertyChanged();
+            }
+        }
 
         public Character Character
         {
@@ -78,7 +80,19 @@ namespace DnDTool.ViewModel
             }
         }
 
-       
+        public InfoViewModel InfoViewModel
+        {
+            get
+            {
+                return this.infoViewModel;
+            }
+
+            set
+            {
+                this.infoViewModel = value;
+                this.RaisePropertyChanged();
+            }
+        }
 
         public object Parameter { get; set; }
 

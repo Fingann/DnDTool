@@ -2,7 +2,7 @@
     x:Class="DnDTool.Views.CharecterViews.InfoView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:context="clr-namespace:DnDTool.Core.Model.Character;assembly=DnDTool.Core"
+    xmlns:context="clr-namespace:DnDTool.;assembly=DnDTool.Core"
     xmlns:converter="clr-namespace:DnDTool.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
@@ -12,9 +12,8 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
     <UserControl.DataContext>
-        <context:Info />
+        <Binding Path="Caller" Source="{StaticResource Locator}" />
     </UserControl.DataContext>
-
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -71,7 +70,7 @@
                 FontSize="30"
                 FontWeight="Bold"
                 Foreground="{StaticResource AccentColorBrush3}"
-                Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Character.Info.Level, UpdateSourceTrigger=PropertyChanged}" />
 
         </Grid>
         <Grid
@@ -92,11 +91,10 @@
                 <RowDefinition Height="1*" />
 
             </Grid.RowDefinitions>
-            <TextBox x:Name="ClassLevel" Style="{StaticResource InfoStyle}">
-                <TextBox.Text>
-                    <Binding Path="Class" />
-                </TextBox.Text>
-            </TextBox>
+            <TextBox
+                x:Name="ClassLevel"
+                Style="{StaticResource InfoStyle}"
+                Text="{Binding Character.Info.Class}" />
             <Label
                 x:Name="ClassLevelLabel"
                 Grid.Row="1"
@@ -134,7 +132,7 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Background, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Character.Info.Background, UpdateSourceTrigger=PropertyChanged}" />
             <Label
                 x:Name="BackgroundLabel"
                 Grid.Row="1"
@@ -147,19 +145,19 @@
                 Grid.Row="0"
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding CharecterName, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Character.Info.CharecterName, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 x:Name="Allignment"
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Character.Info.Allignment, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 x:Name="ExperiencePoints"
                 Grid.Row="2"
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding ExperiancePoints, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Character.Info.ExperiancePoints, UpdateSourceTrigger=PropertyChanged}" />
             <Label
                 x:Name="AllignmentLabel"
                 Grid.Row="3"

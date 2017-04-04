@@ -10,6 +10,10 @@ namespace DnDTool.Model.Messages
 
     public class DisplayCharacterMessage
     {
+        public DisplayCharacterMessage(ref Character character)
+        {
+            Character = character;
+        }
         public Character Character { get; set; }
     }
 }

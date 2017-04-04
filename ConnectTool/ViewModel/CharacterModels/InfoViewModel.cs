@@ -11,9 +11,9 @@ namespace DnDTool.ViewModel.CharacterModels
     {
         private Info info;
 
-        public InfoViewModel(Info character)
+        public InfoViewModel()
         {
-            Info = character;
+           
         }
 
         public Info Info
@@ -25,6 +25,7 @@ namespace DnDTool.ViewModel.CharacterModels
             set
             {
                 this.info = value;
+                this.RaisePropertyChanged();
             }
         }
     }

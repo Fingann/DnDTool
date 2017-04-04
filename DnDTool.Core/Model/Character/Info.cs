@@ -8,7 +8,7 @@
 
         private string background;
 
-        private string charecterName;
+        private string charecterName = "soldrak";
 
         private int experiancePoints;
 

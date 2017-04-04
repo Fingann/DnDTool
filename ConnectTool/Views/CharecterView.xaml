@@ -6,7 +6,7 @@
     xmlns:abilityScoreViewModel="clr-namespace:DnDTool.ViewModel.CharacterModels.AbilityScore"
     xmlns:character="clr-namespace:DnDTool.Core.Model.Character;assembly=DnDTool.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:infoViewModels="clr-namespace:DnDTool.ViewModel.CharacterModels"
+    xmlns:infoViewmodel="clr-namespace:DnDTool.ViewModel.CharacterModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:DnDTool.Views.CharecterViews"
     d:DesignHeight="500"
@@ -14,10 +14,10 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <Thickness x:Key="InfoMargin">0,5,0,5</Thickness>
-        <DataTemplate DataType="{x:Type character:Info}">
+        <DataTemplate DataType="{x:Type infoViewmodel:InfoViewModel}">
             <views:InfoView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type character:AbilityScores}">
+        <DataTemplate DataType="{x:Type abilityScoreViewModel:AbilityScoresViewModel}">
             <views:AbilityScoresView />
         </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -35,13 +35,13 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Custom:ContentControlEx Content="{Binding Character.Info, UpdateSourceTrigger=PropertyChanged}" />
+        <Custom:ContentControlEx Content="{Binding InfoViewModel, UpdateSourceTrigger=PropertyChanged}" />
         <Custom:ContentControlEx
             Grid.Row="0"
             Grid.RowSpan="2"
             Grid.Column="1"
-            Margin="0,10,0,0"
-            Content="{Binding Character.AbilityScores, UpdateSourceTrigger=PropertyChanged}" />
+            Margin="0,10,0,0" />
+        <!--  Content="{Binding Character.AbilityScores, UpdateSourceTrigger=PropertyChanged}"  -->
 
     </Grid>
 </UserControl>

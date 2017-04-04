@@ -48,12 +48,15 @@ namespace DnDTool.ViewModel
             }
             SimpleIoc.Default.Register<IDialogCoordinator, DialogCoordinator>();
             SimpleIoc.Default.Register<INotificationService, NotificationService>();
-            SimpleIoc.Default.Register<Model.Services.INavigationService, NavigationService>();
+            SimpleIoc.Default.Register<INavigationService, NavigationService>();
 
-            SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<CharacterViewModel>();
+            //true instansiates it right away
+            //SimpleIoc.Default.Register<AbilityScoresViewModel>(true);
+            SimpleIoc.Default.Register<MainViewModel>(true);
+            SimpleIoc.Default.Register<CharacterViewModel>(true);
+
             //SimpleIoc.Default.Register<InfoViewModel>();
-            //SimpleIoc.Default.Register<AbilityScoresViewModel>();
+            
         }
 
         /// <summary>

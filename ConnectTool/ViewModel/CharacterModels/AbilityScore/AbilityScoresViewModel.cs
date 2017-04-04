@@ -7,21 +7,32 @@ using System.Threading.Tasks;
 namespace DnDTool.ViewModel.CharacterModels.AbilityScore
 {
     using DnDTool.Core.Model.Character;
+    using DnDTool.Model.Messages;
 
+    using GalaSoft.MvvmLight;
     using GalaSoft.MvvmLight.Ioc;
+    using GalaSoft.MvvmLight.Messaging;
 
-    public class AbilityScoresViewModel
+    public class AbilityScoresViewModel: ViewModelBase
     {
-        [PreferredConstructor]
+        private AbilityScores abilityScores;
+
         public AbilityScoresViewModel()
         {
-            
+         
         }
 
-        public AbilityScoresViewModel(AbilityScores abilityScores)
+        public AbilityScores AbilityScores
         {
-            AbilityScores = abilityScores;
+            get
+            {
+                return this.abilityScores;
+            }
+            set
+            {
+                this.abilityScores = value;
+                this.RaisePropertyChanged();
+            }
         }
-        public AbilityScores AbilityScores { get; set; }
     }
 }
