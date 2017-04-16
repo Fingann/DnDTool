@@ -41,8 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterManager.cs" />
-    <Compile Include="Levling\CharacterAdvancement.cs" />
-    <Compile Include="Levling\LevelTool.cs" />
+    <Compile Include="Factory\CharacterFactory.cs" />
+    <Compile Include="Tools\CharacterAdvancement.cs" />
+    <Compile Include="Tools\LevelTool.cs" />
     <Compile Include="Model\Character\AbilityScore.cs" />
     <Compile Include="Model\Character\AbilityScores.cs" />
     <Compile Include="Model\Character\Attributs.cs" />

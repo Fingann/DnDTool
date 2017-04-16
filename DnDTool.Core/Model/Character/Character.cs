@@ -6,13 +6,14 @@
     public class Character
     {
        
-       public Info Info { get; set; }
+        public Info Info { get; set; }
 
         public AbilityScores AbilityScores { get; set; } 
 
         public Skills Skills { get; set; }
 
         public Traits Traits { get; set;  }
+        public Weapons Weapons { get; set; }
 
     }
 }

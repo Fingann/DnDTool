@@ -26,7 +26,9 @@ namespace DnDTool.ViewModel
 
         private Character character;
 
-        private InfoViewModel infoViewModel = new InfoViewModel();
+        private InfoViewModel infoViewModel;
+
+        private TraitsViewModel traitsViewModel;
 
         public CharacterViewModel(
             IDataService dataservice,
@@ -37,6 +39,7 @@ namespace DnDTool.ViewModel
             this._notificationService = notificationService;
             abilityScoresViewModel = new AbilityScoresViewModel();
             InfoViewModel =new InfoViewModel();
+            traitsViewModel = new TraitsViewModel();
             // this.DisplayNotificationCommand = new RelayCommand(this.DisplayNotification);
             this._dataService = dataservice;
             this._dataService.GetCharecter(
@@ -46,11 +49,26 @@ namespace DnDTool.ViewModel
 
                         this.Character = character;
                     });
-            abilityScoresViewModel = new AbilityScoresViewModel() {AbilityScores = this.character.AbilityScores};
+            AbilityScoresViewModel = new AbilityScoresViewModel() {AbilityScores = this.character.AbilityScores};
             InfoViewModel = new InfoViewModel() {Info = this.character.Info};
+            TraitsViewModel = new TraitsViewModel() {Traits = character.Traits};
         }
 
         public IDataService _dataService { get; set; }
+
+        public TraitsViewModel TraitsViewModel
+        {
+            get
+            {
+                return this.traitsViewModel;
+            }
+
+            set
+            {
+                this.traitsViewModel = value;
+                this.RaisePropertyChanged();
+            }
+        }
 
         public AbilityScoresViewModel AbilityScoresViewModel
         {

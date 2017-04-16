@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DnDTool.Core.Levling;
+using DnDTool.Core.Tools;
 
 namespace DnDTool.Core.Strategy.Update
 {

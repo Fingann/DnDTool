@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using DnDTool.Core.Tools;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
-using DnDTool.Core.Levling;
 using Assert = NUnit.Framework.Assert;
 using TestContext = Microsoft.VisualStudio.TestTools.UnitTesting.TestContext;
 

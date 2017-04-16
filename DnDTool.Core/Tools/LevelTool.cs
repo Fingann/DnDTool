@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DnDTool.Core.Levling
+namespace DnDTool.Core.Tools
 {
     public static class LevelTool
     {

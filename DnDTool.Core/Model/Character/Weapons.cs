@@ -6,7 +6,7 @@
     {
         public List<Weapon> AvailableWeapons { get; set; }
 
-        public Weapon EquipedWeapon { get; set; } = new Weapon() {};
+        public Weapon EquipedWeapons { get; set; } = new Weapon() {};
 
 
             
