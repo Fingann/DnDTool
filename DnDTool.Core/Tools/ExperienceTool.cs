@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DnDTool.Core.Tools
 {
-    public static class LevelTool
+    public static class ExperienceTool
     {
         private static List<CharacterAdvancement> ExperienceAdvancments = new List<CharacterAdvancement>
         {

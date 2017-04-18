@@ -43,7 +43,7 @@
     <Compile Include="CharacterManager.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
     <Compile Include="Tools\CharacterAdvancement.cs" />
-    <Compile Include="Tools\LevelTool.cs" />
+    <Compile Include="Tools\ExperienceTool.cs" />
     <Compile Include="Model\Character\AbilityScore.cs" />
     <Compile Include="Model\Character\AbilityScores.cs" />
     <Compile Include="Model\Character\Attributs.cs" />
@@ -55,8 +55,8 @@
     <Compile Include="Model\Character\Weapons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strategy\UpdateStrategy.cs" />
-    <Compile Include="Strategy\Update\LevelUpdate.cs" />
-    <Compile Include="Strategy\Update\ProficiencyBonusUpdate.cs" />
+    <Compile Include="Strategy\Update\UpdateLevel.cs" />
+    <Compile Include="Strategy\Update\UpdateProficiencyBonus.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repository\" />

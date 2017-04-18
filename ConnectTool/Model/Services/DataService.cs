@@ -69,7 +69,14 @@ namespace DnDTool.Model.Services
             };
 
 
-            var item = new Character() { Info = info, AbilityScores = abilityScores };
+            var traits = new Traits()
+            {
+                Bonds = "Avenge my father",
+                Flaws = "Cant handle my booze",
+                Ideals = "Honor, glory and women",
+                PersonalTraits = "Like Choclate, i really like Choclate"
+            };
+            var item = new Character() { Info = info, AbilityScores = abilityScores, Traits = traits };
             callback(item, null);
         }
 

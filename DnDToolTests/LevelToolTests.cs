@@ -22,20 +22,20 @@ namespace DnDToolTests
         [Test]
         public void Level_test()
         {
-            var testlevel = LevelTool.GetLevel(28999);
+            var testlevel = ExperienceTool.GetLevel(28999);
             Assert.AreEqual(7,testlevel);
-            var testLevel2 = LevelTool.GetLevel(240232);
+            var testLevel2 = ExperienceTool.GetLevel(240232);
             Assert.AreEqual(17, testLevel2);
-            var testLevel3 = LevelTool.GetLevel(165000);
+            var testLevel3 = ExperienceTool.GetLevel(165000);
             Assert.AreEqual(15, testLevel3);
         }
 
         [Test]
         public void Level_Wrong_Values_test()
         {
-            var testlevel = LevelTool.GetLevel(-245);
+            var testlevel = ExperienceTool.GetLevel(-245);
             Assert.AreEqual(0, testlevel);
-            var testLevel2 = LevelTool.GetLevel(new int());
+            var testLevel2 = ExperienceTool.GetLevel(new int());
             Assert.AreEqual(0, testLevel2);
         }
 
@@ -43,20 +43,20 @@ namespace DnDToolTests
         [Test]
         public void ProficiencyBonus_test()
         {
-            var testlevel = LevelTool.GetProficiencyBonus(28999);
+            var testlevel = ExperienceTool.GetProficiencyBonus(28999);
             Assert.AreEqual(3, testlevel);
-            var testLevel2 = LevelTool.GetProficiencyBonus(240232);
+            var testLevel2 = ExperienceTool.GetProficiencyBonus(240232);
             Assert.AreEqual(6, testLevel2);
-            var testLevel3 = LevelTool.GetProficiencyBonus(165000);
+            var testLevel3 = ExperienceTool.GetProficiencyBonus(165000);
             Assert.AreEqual(5, testLevel3);
         }
 
         [Test]
         public void ProficiencyBonus_Wrong_Values_test()
         {
-            var testlevel = LevelTool.GetLevel(-245);
+            var testlevel = ExperienceTool.GetLevel(-245);
             Assert.AreEqual(0, testlevel);
-            var testLevel2 = LevelTool.GetLevel(new int());
+            var testLevel2 = ExperienceTool.GetLevel(new int());
             Assert.AreEqual(0, testLevel2);
         }
     }

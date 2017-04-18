@@ -9,11 +9,11 @@ namespace DnDTool.Core.Strategy.Update
 {
     using DnDTool.Core.Model.Character;
 
-    public class ProficiencyBonusUpdate : UpdateStrategy
+    public class UpdateProficiencyBonus : UpdateStrategy
     {
         public override void Update(Character charecter)
         {
-            charecter.AbilityScores.ProficiencyBonus = LevelTool.GetProficiencyBonus(charecter.Info.ExperiancePoints);
+            charecter.AbilityScores.ProficiencyBonus = ExperienceTool.GetProficiencyBonus(charecter.Info.ExperiancePoints);
         }
     }
 }

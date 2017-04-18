@@ -4,12 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DnDTool.Core.Model.Character;
+using GalaSoft.MvvmLight;
 
 namespace DnDTool.ViewModel.CharacterModels
 {
-    public class TraitsViewModel
+    public class TraitsViewModel: ViewModelBase
     {
-        public Traits Traits { get; set; }
+        private Traits _traits;
+
+        public Traits Traits
+        {
+            get { return _traits; }
+            set
+            {
+                _traits = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public TraitsViewModel(Traits traits)
         {

@@ -1,6 +1,6 @@
 ﻿namespace DnDTool.Core.Tools
 {
-    class CharacterAdvancement
+    struct CharacterAdvancement
     {
         
         public CharacterAdvancement(int experiance, int level, int proficiencyBonus)

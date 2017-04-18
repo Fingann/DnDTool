@@ -58,9 +58,15 @@ namespace DnDTool.Design
                            {
                                Allignment = "Natural Evil", Background = "Pirate", CharecterName = "Malov", Class = "Barbarian", ExperiancePoints = 940, Level = 5, PlayerName = "Sondre", Race = "Half-Orc"
                            };
-           
 
-            var item = new Character() {Info  = info, AbilityScores = abilityScores};
+            var traits = new Traits()
+            {
+                Bonds = "Avenge my father",
+                Flaws = "Cant handle my booze",
+                Ideals = "Honor, glory and women",
+                PersonalTraits = "Like Choclate, i really like Choclate"
+            };
+            var item = new Character() {Info  = info, AbilityScores = abilityScores, Traits = traits};
             callback(item, null);
         }
     }

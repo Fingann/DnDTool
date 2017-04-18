@@ -1,4 +1,6 @@
-﻿namespace DnDTool.Core.Model.Character
+﻿using DnDTool.Core.Strategy;
+
+namespace DnDTool.Core.Model.Character
 {
     using System;
     using System.Collections.Generic;
@@ -14,6 +16,8 @@
 
         public Traits Traits { get; set;  }
         public Weapons Weapons { get; set; }
+
+       
 
     }
 }
