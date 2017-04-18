@@ -1,8 +1,16 @@
 ﻿namespace DnDTool.Core.Model.Character
 {
-  
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
 
-    public class Info 
+    using DnDTool.Core.Annotations;
+    using DnDTool.Core.Tools;
+
+    using PropertyChanged;
+
+    [ImplementPropertyChanged]
+    public class Info
     {
         private string allignment;
 
@@ -94,7 +102,8 @@
         {
             get
             {
-                return this.level;
+
+               return ExperienceTool.GetLevel(this.experiancePoints); 
             }
 
             set
@@ -128,8 +137,24 @@
             set
             {
                 this.race = value;
-            
+
+
             }
         }
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        //[NotifyPropertyChangedInvocator]
+        //protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
+        //protected bool SetField<T>(ref T field, T value, string propertyName)
+        //{
+        //    if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        //    field = value;
+        //    OnPropertyChanged(propertyName);
+        //    return true; 
+        //}
     }
 }

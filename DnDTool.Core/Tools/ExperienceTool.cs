@@ -33,12 +33,22 @@ namespace DnDTool.Core.Tools
 
         public static int GetLevel(int experiance)
         {
+            var last = ExperienceAdvancments.Last();
+            if (experiance > last.Experiance)
+            {
+                return last.Level;
+            }
             //Finds the first level greater then experiance and returns the level before
             return ExperienceAdvancments.First(x => Math.Max(x.Experiance, experiance) != experiance).Level -1;
         }
 
         public static int GetProficiencyBonus(int experiance)
         {
+            if (experiance < 0)
+            {
+                return ExperienceAdvancments.First().ProficiencyBonus;
+            }
+
             var index = ExperienceAdvancments.FindIndex(x => Math.Max(x.Experiance, experiance) != experiance) - 1;
             return ExperienceAdvancments[index].ProficiencyBonus;
         }

@@ -11,7 +11,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
     <UserControl.DataContext>
-        <Binding Path="Caller" Source="{StaticResource Locator}" />
+        <Binding Path="Caller.Character.Info" Source="{StaticResource Locator}" />
     </UserControl.DataContext>
 
     <UserControl.Resources>
@@ -69,7 +69,7 @@
                 FontSize="30"
                 FontWeight="Bold"
                 Foreground="{StaticResource AccentColorBrush3}"
-                Text="{Binding Character.Info.Level, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" />
 
         </Grid>
         <Grid
@@ -93,7 +93,7 @@
             <TextBox
                 x:Name="ClassLevel"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Character.Info.Class}" />
+                Text="{Binding Class}" />
             <Label
                 x:Name="ClassLevelLabel"
                 Grid.Row="1"
@@ -131,7 +131,7 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Character.Info.Background, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Background, UpdateSourceTrigger=PropertyChanged}" />
             <Label
                 x:Name="BackgroundLabel"
                 Grid.Row="1"
@@ -144,19 +144,19 @@
                 Grid.Row="0"
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Character.Info.CharecterName, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding CharecterName, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 x:Name="Allignment"
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Character.Info.Allignment, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 x:Name="ExperiencePoints"
                 Grid.Row="2"
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Character.Info.ExperiancePoints, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding ExperiancePoints, UpdateSourceTrigger=PropertyChanged}" />
             <Label
                 x:Name="AllignmentLabel"
                 Grid.Row="3"
