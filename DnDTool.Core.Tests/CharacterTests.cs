@@ -14,7 +14,7 @@ namespace DnDTool.Core.Tests
         [TestMethod]
         public void Character_AbilityScore_Test()
         {
-            charecter.AbilityScores.Abilityscore
+            var list = charecter.AbilityScores;
         }
     }
 }

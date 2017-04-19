@@ -43,12 +43,12 @@ namespace DnDTool.Model.Services
                                         
                                             new List<AbilityScore>()
                                                 {
-                                                    new AbilityScore() { Bonus = 3, ShortName = "STR", Name = "Strength", Score = 10, Url = "ht" },
-                                                    new AbilityScore() { Bonus = 2, ShortName = "DEX", Name = "Dexterity", Score = 13, Url = "ht" },
-                                                    new AbilityScore() { Bonus = 3, ShortName = "CON", Name = "Constitution", Score = 15, Url = "ht" },
-                                                    new AbilityScore() { Bonus = 0,ShortName = "Int", Name = "Intelligence", Score = 12, Url = "ht" },
-                                                    new AbilityScore() { Bonus = 1,ShortName = "WIS", Name = "Wisdom", Score = 3, Url = "ht" },
-                                                    new AbilityScore() { Bonus = -2,ShortName = "CHA", Name = "Charisma", Score = 9, Url = "ht" }
+                                                    new AbilityScore() {  ShortName = "STR", Name = "Strength", Score = 10, Url = "ht" },
+                                                    new AbilityScore() {ShortName = "DEX", Name = "Dexterity", Score = 13, Url = "ht" },
+                                                    new AbilityScore() {  ShortName = "CON", Name = "Constitution", Score = 15, Url = "ht" },
+                                                    new AbilityScore() { ShortName = "Int", Name = "Intelligence", Score = 12, Url = "ht" },
+                                                    new AbilityScore() { ShortName = "WIS", Name = "Wisdom", Score = 3, Url = "ht" },
+                                                    new AbilityScore() { ShortName = "CHA", Name = "Charisma", Score = 9, Url = "ht" }
                                                 },
                 Inspiration = 1,
                 PassiveWisdom = 0,

@@ -25,12 +25,12 @@ namespace DnDToolTests
                     Abilityscore =
                                            new List<AbilityScore>()
                                                {
-                                                    new AbilityScore() { Bonus = 3, Name = "Strength", Score = 10, Url = "ht" },
-                                                    new AbilityScore() { Bonus = 2, Name = "Dexterity", Score = 13, Url = "ht" },
-                                                    new AbilityScore() { Bonus = 3, Name = "Constitution", Score = 15, Url = "ht" },
-                                                    new AbilityScore() { Bonus = 0, Name = "Intelligence", Score = 12, Url = "ht" },
-                                                    new AbilityScore() { Bonus = 1, Name = "Wisdom", Score = 3, Url = "ht" },
-                                                    new AbilityScore() { Bonus = -2, Name = "Charisma", Score = 9, Url = "ht" }
+                                                    new AbilityScore() { Name = "Strength", Score = 10, Url = "ht" },
+                                                    new AbilityScore() {  Name = "Dexterity", Score = 13, Url = "ht" },
+                                                    new AbilityScore() { Name = "Constitution", Score = 15, Url = "ht" },
+                                                    new AbilityScore() {  Name = "Intelligence", Score = 12, Url = "ht" },
+                                                    new AbilityScore() {  Name = "Wisdom", Score = 3, Url = "ht" },
+                                                    new AbilityScore() { Name = "Charisma", Score = 9, Url = "ht" }
                                                },
                     Inspiration = 1,
                     PassiveWisdom = 0,

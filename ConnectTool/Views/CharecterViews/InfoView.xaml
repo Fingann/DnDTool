@@ -59,17 +59,17 @@
                 Width="100"
                 Height="100"
                 Source="/Resources/Images/Stormtrouper.jpg" />
-            <TextBox
+            <TextBlock
                 MinWidth="25"
                 MaxWidth="{Binding ElementName=CharacterImage, Path=ActualWidth}"
                 Margin="0,0,7,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
-                HorizontalContentAlignment="Center"
                 FontSize="30"
                 FontWeight="Bold"
                 Foreground="{StaticResource AccentColorBrush3}"
-                Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"
+                TextAlignment="Center" />
 
         </Grid>
         <Grid
@@ -107,7 +107,8 @@
                 VerticalAlignment="Bottom"
                 materialDesign:HintAssist.Hint="Search"
                 materialDesign:HintAssist.HintOpacity=".26"
-                IsEditable="True">
+                IsEditable="True"
+                SelectedItem="{Binding Race, UpdateSourceTrigger=PropertyChanged}">
                 <ComboBoxItem>Human</ComboBoxItem>
                 <ComboBoxItem>Orc</ComboBoxItem>
                 <ComboBoxItem>Dwarf</ComboBoxItem>

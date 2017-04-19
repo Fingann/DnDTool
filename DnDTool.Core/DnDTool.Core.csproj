@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CharacterManager.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
+    <Compile Include="Model\Character\SavingThrow.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tools\CharacterAdvancement.cs" />
     <Compile Include="Tools\ExperienceTool.cs" />

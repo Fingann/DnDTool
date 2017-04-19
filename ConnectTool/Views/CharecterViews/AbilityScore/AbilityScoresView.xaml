@@ -120,7 +120,7 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBox
-                            x:Name="Score"
+                            x:Name="Bonus"
                             Margin="0,0,0,5"
                             HorizontalContentAlignment="Center"
                             materialDesign:ValidationAssist.OnlyShowOnFocus="True"
@@ -128,7 +128,7 @@
                             BorderThickness="0"
                             FontWeight="Bold"
                             Foreground="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PositiveNegativeColorConverter}}"
-                            Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}" />
+                            Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
                         <Label
                             x:Name="AbilityScoreName"
                             Grid.Column="1"
@@ -139,7 +139,7 @@
                             FontSize="10"
                             FontWeight="Bold" />
                         <TextBox
-                            x:Name="Bonus"
+                            x:Name="Score"
                             Grid.Column="2"
                             Margin="0,0,0,5"
                             HorizontalContentAlignment="Center"
