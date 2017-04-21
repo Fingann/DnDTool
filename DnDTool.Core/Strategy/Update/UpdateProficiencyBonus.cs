@@ -8,12 +8,13 @@ using DnDTool.Core.Tools;
 namespace DnDTool.Core.Strategy.Update
 {
     using DnDTool.Core.Model.Character;
+    using DnDTool.Core.Tools.Experience;
 
     public class UpdateProficiencyBonus : UpdateStrategy
     {
         public override void Update(Character charecter)
         {
-            charecter.AbilityScores.ProficiencyBonus = ExperienceTool.GetProficiencyBonus(charecter.Info.ExperiancePoints);
+            charecter.AbilityScores.ProficiencyBonus = ExperienceTool.GetProficiencyBonus(charecter.Info.ExperiencePoints);
         }
     }
 }

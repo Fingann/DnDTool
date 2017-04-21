@@ -146,18 +146,38 @@
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
                 Text="{Binding CharecterName, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox
+            <ComboBox
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="0,0,5,0"
+                VerticalAlignment="Bottom"
+                materialDesign:HintAssist.Hint="Search"
+                materialDesign:HintAssist.HintOpacity=".26"
+                IsEditable="True"
+                SelectedItem="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}">
+
+                <ComboBoxItem>Lawful good</ComboBoxItem>
+                <ComboBoxItem>Neutral good</ComboBoxItem>
+                <ComboBoxItem>Chaotic good</ComboBoxItem>
+                <ComboBoxItem>Lawful neutral</ComboBoxItem>
+                <ComboBoxItem>(True) neutral</ComboBoxItem>
+                <ComboBoxItem>Chaotic neutral</ComboBoxItem>
+                <ComboBoxItem>Lawful evil</ComboBoxItem>
+                <ComboBoxItem>Neutral good</ComboBoxItem>
+                <ComboBoxItem>Chaotic good</ComboBoxItem>
+            </ComboBox>
+            <!--<TextBox
                 x:Name="Allignment"
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}" />-->
             <TextBox
                 x:Name="ExperiencePoints"
                 Grid.Row="2"
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding ExperiancePoints, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding ExperiencePoints, UpdateSourceTrigger=PropertyChanged}" />
             <Label
                 x:Name="AllignmentLabel"
                 Grid.Row="3"

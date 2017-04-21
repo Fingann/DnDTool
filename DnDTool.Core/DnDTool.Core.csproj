@@ -50,8 +50,9 @@
     <Compile Include="Factory\CharacterFactory.cs" />
     <Compile Include="Model\Character\SavingThrow.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Tools\CharacterAdvancement.cs" />
-    <Compile Include="Tools\ExperienceTool.cs" />
+    <Compile Include="Strategy\Update\UpdateSavingThrowProficiency.cs" />
+    <Compile Include="Tools\Experience\CharacterAdvancement.cs" />
+    <Compile Include="Tools\Experience\ExperienceTool.cs" />
     <Compile Include="Model\Character\AbilityScore.cs" />
     <Compile Include="Model\Character\AbilityScores.cs" />
     <Compile Include="Model\Character\Attributs.cs" />

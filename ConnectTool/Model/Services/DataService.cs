@@ -37,23 +37,23 @@ namespace DnDTool.Model.Services
         public void GetCharecter(Action<Character, Exception> callback)
         {
 
-            var abilityScores = new AbilityScores()
-            {
-                Abilityscore =
+            var abilityScores = new AbilityScores();
+            //{
+            //    Abilityscore =
                                         
-                                            new List<AbilityScore>()
-                                                {
-                                                    new AbilityScore() {  ShortName = "STR", Name = "Strength", Score = 10, Url = "ht" },
-                                                    new AbilityScore() {ShortName = "DEX", Name = "Dexterity", Score = 13, Url = "ht" },
-                                                    new AbilityScore() {  ShortName = "CON", Name = "Constitution", Score = 15, Url = "ht" },
-                                                    new AbilityScore() { ShortName = "Int", Name = "Intelligence", Score = 12, Url = "ht" },
-                                                    new AbilityScore() { ShortName = "WIS", Name = "Wisdom", Score = 3, Url = "ht" },
-                                                    new AbilityScore() { ShortName = "CHA", Name = "Charisma", Score = 9, Url = "ht" }
-                                                },
-                Inspiration = 1,
-                PassiveWisdom = 0,
-                ProficiencyBonus = 2
-            };
+            //                                new List<AbilityScore>()
+            //                                    {
+            //                                        new AbilityScore() {  ShortName = "STR", Name = "Strength", Score = 10, Url = "ht" },
+            //                                        new AbilityScore() {ShortName = "DEX", Name = "Dexterity", Score = 13, Url = "ht" },
+            //                                        new AbilityScore() {  ShortName = "CON", Name = "Constitution", Score = 15, Url = "ht" },
+            //                                        new AbilityScore() { ShortName = "Int", Name = "Intelligence", Score = 12, Url = "ht" },
+            //                                        new AbilityScore() { ShortName = "WIS", Name = "Wisdom", Score = 3, Url = "ht" },
+            //                                        new AbilityScore() { ShortName = "CHA", Name = "Charisma", Score = 9, Url = "ht" }
+            //                                    },
+            //    Inspiration = 1,
+            //    PassiveWisdom = 0,
+            //    ProficiencyBonus = 2
+            //};
 
 
             var info = new Info()
@@ -62,7 +62,7 @@ namespace DnDTool.Model.Services
                 Background = "Pirate",
                 CharecterName = "Malov",
                 Class = "Barbarian",
-                ExperiancePoints = 940,
+                ExperiencePoints = 940,
                 Level = 5,
                 PlayerName = "Sondre",
                 Race = "Half-Orc"

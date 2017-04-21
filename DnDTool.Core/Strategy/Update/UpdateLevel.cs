@@ -8,12 +8,13 @@ using DnDTool.Core.Tools;
 namespace DnDTool.Core.Strategy.Update
 {
     using DnDTool.Core.Model.Character;
+    using DnDTool.Core.Tools.Experience;
 
     public class UpdateLevel: UpdateStrategy
     {
         public override void Update(Character charecter)
         {
-            charecter.Info.Level = ExperienceTool.GetLevel(charecter.Info.ExperiancePoints);
+            charecter.Info.Level = ExperienceTool.GetLevel(charecter.Info.ExperiencePoints);
         }
     }
 }

@@ -23,6 +23,7 @@
             <SolidColorBrush x:Key="AccentColorBrush4" Color="{DynamicResource Primary200}" />
             <SolidColorBrush x:Key="WindowTitleColorBrush" Color="{DynamicResource Primary700}" />
             <SolidColorBrush x:Key="AccentSelectedColorBrush" Color="{DynamicResource Primary500Foreground}" />
+
             <LinearGradientBrush x:Key="ProgressBrush" StartPoint="1.002,0.5" EndPoint="0.001,0.5">
                 <GradientStop Offset="0" Color="{DynamicResource Primary700}" />
                 <GradientStop Offset="1" Color="{DynamicResource Primary300}" />

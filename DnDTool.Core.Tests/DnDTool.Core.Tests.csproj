@@ -57,7 +57,7 @@
     <Compile Include="CharacterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\CharacterManagerTests.cs" />
-    <Compile Include="Tools\LevelToolTests.cs" />
+    <Compile Include="Tools\Experience\ExperienceToolTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DnDTool.Core\DnDTool.Core.csproj">

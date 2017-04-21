@@ -1,32 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DnDTool.Core.Strategy;
-
+﻿// ReSharper disable StyleCop.SA1600
 namespace DnDTool.Core
 {
+    using System.Diagnostics.CodeAnalysis;
+
     using DnDTool.Core.Model.Character;
+    using DnDTool.Core.Strategy;
 
-    public class CharacterManager
+    public sealed class CharacterManager
     {
-        private Character character { get; set; }
+        private static CharacterManager instance;
 
-        public CharacterManager(Character character)
-        {
-            this.character = character;
-        }
-        private UpdateStrategy _updateStrategy;
+        private UpdateStrategy updateStrategy;
 
-        public void SetUpdateStrategy(UpdateStrategy updateStrategy)
+        private CharacterManager()
         {
-            this._updateStrategy = updateStrategy;
         }
-        
+
+        public static CharacterManager Instance => instance ?? (instance = new CharacterManager());
+
+        public Character Character { get; set; }
+
+        public void SetUpdateStrategy(UpdateStrategy updateStrat)
+        {
+            this.updateStrategy = updateStrat;
+        }
+
         public void Update()
         {
-            _updateStrategy.Update(character);
+            if (this.Character != null)
+            {
+                this.updateStrategy.Update(this.Character);
+            }
+        }
+
+        public void Update(UpdateStrategy updateStrat)
+        {
+            this.updateStrategy = updateStrat;
+            if (this.Character != null)
+            {
+                this.updateStrategy.Update(this.Character);
+            }
         }
     }
 }

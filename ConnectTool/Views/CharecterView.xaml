@@ -37,8 +37,8 @@
             <RowDefinition Height="34*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="156" />
-            <ColumnDefinition Width="376" />
+            <ColumnDefinition Width="183" />
+            <ColumnDefinition Width="349" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
@@ -47,11 +47,11 @@
             Margin="5,5,0,0"
             Content="{Binding InfoViewModel, UpdateSourceTrigger=PropertyChanged}" />
         <Custom:ContentControlEx
-            Grid.Row="1"
-            Grid.RowSpan="2"
+            Grid.Row="2"
             Grid.Column="0"
-            Margin="5,5,0,0"
-            Content="{Binding AbilityScoresViewModel, UpdateSourceTrigger=PropertyChanged}" />
+            Grid.ColumnSpan="2">
+            <views:AbilityView />
+        </Custom:ContentControlEx>
         <Custom:ContentControlEx
             Grid.Row="0"
             Grid.RowSpan="2"

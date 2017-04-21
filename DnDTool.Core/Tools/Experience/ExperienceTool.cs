@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Runtime.CompilerServices;
 
-namespace DnDTool.Core.Tools
+
+namespace DnDTool.Core.Tools.Experience
 {
-    public static class ExperienceTool
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Runtime.CompilerServices;
+
+    
+    internal static class ExperienceTool
     {
         private static List<CharacterAdvancement> ExperienceAdvancments = new List<CharacterAdvancement>
         {
@@ -31,15 +36,16 @@ namespace DnDTool.Core.Tools
         };
 
 
-        public static int GetLevel(int experiance)
+        public static int GetLevel(int experience)
         {
             var last = ExperienceAdvancments.Last();
-            if (experiance > last.Experiance)
+            if (experience > last.Experience)
             {
                 return last.Level;
             }
-            //Finds the first level greater then experiance and returns the level before
-            return ExperienceAdvancments.First(x => Math.Max(x.Experiance, experiance) != experiance).Level -1;
+            //Finds the first level greater then experience and returns the level before
+
+            return ExperienceAdvancments.First(x => Math.Max(x.Experience, experience) != experience).Level - 1;
         }
 
         public static int GetProficiencyBonus(int experiance)
@@ -49,7 +55,7 @@ namespace DnDTool.Core.Tools
                 return ExperienceAdvancments.First().ProficiencyBonus;
             }
 
-            var index = ExperienceAdvancments.FindIndex(x => Math.Max(x.Experiance, experiance) != experiance) - 1;
+            var index = ExperienceAdvancments.FindIndex(x => Math.Max(x.Experience, experiance) != experiance) - 1;
             return ExperienceAdvancments[index].ProficiencyBonus;
         }
 

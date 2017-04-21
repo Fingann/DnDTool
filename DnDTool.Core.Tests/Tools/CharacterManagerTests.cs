@@ -43,7 +43,7 @@ namespace DnDToolTests
                     Background = "Pirate",
                     CharecterName = "Malov",
                     Class = "Barbarian",
-                    ExperiancePoints = 24000,
+                    ExperiencePoints = 24000,
                     Level = 0,
                     PlayerName = "Sondre",
                     Race = "Half-Orc"
@@ -60,9 +60,9 @@ namespace DnDToolTests
         [Test]
         public void CharacterManagerTest()
         {
-            CharacterManager charManager = new CharacterManager(Character);
-            charManager.SetUpdateStrategy(new UpdateLevel());
-            charManager.Update();
+            CharacterManager.Instance.Character = Character;
+            CharacterManager.Instance.SetUpdateStrategy(new UpdateLevel());
+            CharacterManager.Instance.Update();
         }
     }
 }

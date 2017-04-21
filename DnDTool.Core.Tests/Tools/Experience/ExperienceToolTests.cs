@@ -10,11 +10,15 @@ using TestContext = Microsoft.VisualStudio.TestTools.UnitTesting.TestContext;
 
 namespace DnDToolTests
 {
+    using DnDTool.Core.Tools.Experience;
+
+    
+
     /// <summary>
     /// Summary description for LevelToolTests
     /// </summary>
     [TestFixture]
-    public class LevelToolTests
+    public class ExperienceToolTests
     {
        
 

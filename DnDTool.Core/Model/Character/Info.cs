@@ -5,6 +5,7 @@
     using System.Runtime.CompilerServices;
 
     using DnDTool.Core.Annotations;
+    using DnDTool.Core.Strategy.Update;
     using DnDTool.Core.Tools;
 
     using PropertyChanged;
@@ -18,7 +19,7 @@
 
         private string charecterName = "soldrak";
 
-        private int experiancePoints;
+        private int experiencePoints;
 
         private int level;
 
@@ -84,17 +85,19 @@
             }
         }
 
-        public int ExperiancePoints
+        public int ExperiencePoints
         {
             get
             {
-                return this.experiancePoints;
+                return this.experiencePoints;
             }
 
             set
             {
-                this.experiancePoints = value;
-               
+                this.experiencePoints = value;
+                CharacterManager.Instance.Update(new UpdateLevel());
+                CharacterManager.Instance.Update(new UpdateProficiencyBonus());
+
             }
         }
 
@@ -103,7 +106,7 @@
             get
             {
 
-               return ExperienceTool.GetLevel(this.experiancePoints); 
+               return this.level; 
             }
 
             set

@@ -9,6 +9,7 @@
 // ReSharper disable StyleCop.SA1600
 namespace DnDTool.ViewModel
 {
+    using DnDTool.Core;
     using DnDTool.Core.Model.Character;
     using DnDTool.Interface;
     using DnDTool.Model.Services;
@@ -48,6 +49,7 @@ namespace DnDTool.ViewModel
                         if (exception != null) return;
 
                         this.Character = character;
+                        CharacterManager.Instance.Character = this.Character;
                     });
             AbilityScoresViewModel = new AbilityScoresViewModel() {AbilityScores = this.character.AbilityScores};
             InfoViewModel = new InfoViewModel() {Info = this.character.Info};

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:context="clr-namespace:DnDTool.ViewModel"
     xmlns:converter="clr-namespace:DnDTool.Converters"
+    xmlns:core="clr-namespace:DnDTool.Core.Model.Character;assembly=DnDTool.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -30,9 +31,13 @@
     </UserControl.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
 
@@ -40,12 +45,17 @@
 
 
         <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
-            <TextBox
-                MinWidth="150"
-                HorizontalContentAlignment="Center"
+
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
                 materialDesign:ValidationAssist.UsePopup="True"
-                BorderThickness="0">
-                <TextBox.Style>
+                FontWeight="Heavy"
+                Foreground="{StaticResource AccentColorBrush}"
+                Text="{Binding Path=ProficiencyBonus, StringFormat={}+{0}}" />
+            <Label Content="Proficiency bonus" />
+
+            <!--<TextBox.Style>
                     <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
                         <Setter Property="Text" Value="{Binding Path=ProficiencyBonus, StringFormat={}+{0} Proficiency Bonus}" />
                         <Style.Triggers>
@@ -54,8 +64,8 @@
                             </Trigger>
                         </Style.Triggers>
                     </Style>
-                </TextBox.Style>
-            </TextBox>
+                </TextBox.Style>-->
+
 
 
         </WrapPanel>
@@ -100,10 +110,11 @@
 
 
         <ListView
+            x:Name="AbilityScoresList"
             Grid.Row="1"
-            MinWidth="100"
-            MinHeight="100"
-            ItemsSource="{Binding Abilityscore, UpdateSourceTrigger=PropertyChanged}">
+            Grid.Column="0"
+            ItemsSource="{Binding Abilityscore, UpdateSourceTrigger=PropertyChanged}"
+            SelectedValuePath="SavingThrows">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -152,6 +163,83 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Grid
+            Grid.Row="0"
+            Grid.RowSpan="3"
+            Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <ListView
+                x:Name="SavingThrowsList"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Margin="5"
+                ItemsSource="{Binding Abilityscore, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <materialDesign:Card Grid.RowSpan="1" Grid.Column="0">
+                                <StackPanel>
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Content="{Binding ShortName, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBox
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBox
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <ListView
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="1"
+                                ItemsSource="{Binding SavingThrows, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Label Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+
+
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </Grid>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
+
 
 </UserControl>

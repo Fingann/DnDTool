@@ -115,7 +115,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\WrapPanelExtended.cs" />
     <Compile Include="Converters\PositiveNegativeColorConverter.cs" />
+    <Compile Include="Converters\ToPlussMinusIntConverter.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Interface\IDisplayable.cs" />
     <Compile Include="Interface\INavigationView.cs" />
@@ -145,6 +147,9 @@
     <Compile Include="Views\CharecterViews\AbilityScore\AbilityScoresView.xaml.cs">
       <DependentUpon>AbilityScoresView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CharecterViews\AbilityView.xaml.cs">
+      <DependentUpon>AbilityView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CharecterViews\InfoView.xaml.cs">
       <DependentUpon>InfoView.xaml</DependentUpon>
     </Compile>
@@ -172,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CharecterViews\AbilityScore\AbilityScoresView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CharecterViews\AbilityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

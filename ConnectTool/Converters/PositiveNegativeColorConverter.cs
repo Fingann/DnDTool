@@ -23,7 +23,7 @@ namespace DnDTool.Converters
             }
 
             number = (int)values;
-            return (number >= 0) ? new SolidColorBrush(Colors.ForestGreen) : new SolidColorBrush(Colors.OrangeRed);
+            return (number >= 0) ? new SolidColorBrush(Colors.GreenYellow) : new SolidColorBrush(Colors.OrangeRed);
 
           
         }
