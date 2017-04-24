@@ -161,6 +161,9 @@
     <Compile Include="Views\BackgroundViews\TraitsView.xaml.cs">
       <DependentUpon>TraitsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CharecterViews\WeaponsView.xaml.cs">
+      <DependentUpon>WeaponsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dialogs\QueryDialogView.xaml.cs">
       <DependentUpon>QueryDialogView.xaml</DependentUpon>
     </Compile>
@@ -205,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BackgroundViews\TraitsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CharecterViews\WeaponsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
