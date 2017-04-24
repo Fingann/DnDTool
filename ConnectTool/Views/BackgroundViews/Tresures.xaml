@@ -14,66 +14,78 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListBox.xaml" />
+
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="ItemTemplate">
+                <Grid HorizontalAlignment="Stretch"  >
+                    <TextBlock Text="{Binding}"  />
+                    <Button HorizontalAlignment="Right" Visibility="Hidden"  Background="OrangeRed" Padding="2"   FontSize="10"    Foreground="White" x:Name="DeleteButton" Content="Delete"   
+                     CommandParameter="{Binding SelectedValue, ElementName=listBox}" Height="Auto" Command="{Binding DeleteCommand, Mode=OneWay}"   >
+
+
+                    </Button>
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="SelectedTemplate">
+                <Grid HorizontalAlignment="Stretch"  >
+                    <TextBlock x:Name="DisplayedItem" Text="{Binding}"  />
+                    <Button  HorizontalAlignment="Right" Visibility="Visible"  Background="OrangeRed" Padding="2"   FontSize="10"    Foreground="White" x:Name="DeleteButton" Content="Delete"   
+                     CommandParameter="{Binding ElementName=DisplayedItem, Path=Text }" Height="Auto" Command="{Binding DeleteCommand}"   >
+
+                        <Button.DataContext>
+                            <Binding Path="Background" Source="{StaticResource Locator}" />
+
+                        </Button.DataContext>
+                    </Button>
+                </Grid>
+            </DataTemplate>
+
+            <Style TargetType="{x:Type ListBoxItem}" x:Key="ContainerStyle">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                <Setter Property="ContentTemplate" Value="{StaticResource ItemTemplate}" />
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SelectedTemplate}" />
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SelectedTemplate}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+
+
+
         </ResourceDictionary>
     </UserControl.Resources>
-    
-    <materialDesign:Card VerticalAlignment="Stretch" >
-        <materialDesign:DialogHost Identifier="Tressures" DialogClosing="{Binding DialogClosingCommand}" >
-            <materialDesign:DialogHost.DialogContent>
-                <StackPanel Margin="16">
-                    <TextBlock>Add a new fruit.</TextBlock>
-                    <TextBox Margin="0 8 0 0" HorizontalAlignment="Stretch" x:Name="FruitTextBox" />
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                        <Button Style="{StaticResource MaterialDesignFlatButton}"
-                                        IsDefault="True"
-                                        Margin="0 8 8 0"
-                                        Command="materialDesign:DialogHost.CloseDialogCommand">
-                            <Button.CommandParameter>
-                                <system:Boolean>True</system:Boolean>
-                            </Button.CommandParameter>
-                            ACCEPT
-                        </Button>
-                        <Button Style="{StaticResource MaterialDesignFlatButton}"
-                                        IsCancel="True"
-                                        Margin="0 8 8 0"
-                                        Command="materialDesign:DialogHost.CloseDialogCommand">
-                            <Button.CommandParameter>
-                                <system:Boolean>False</system:Boolean>
-                            </Button.CommandParameter>
-                            CANCEL
-                        </Button>
-                    </StackPanel>
-                </StackPanel>
-            </materialDesign:DialogHost.DialogContent>
 
+    <materialDesign:Card VerticalAlignment="Stretch" >
+        <materialDesign:DialogHost Identifier="Tressures"  >
 
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <WrapPanel ZIndex="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.501,1.417" Margin="0,0,10,28" Grid.RowSpan="2">
-                    <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                                    Foreground="White" Margin="0,0,5,0" FontWeight="Bold" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Content="Add"></Button>
-                    <Button Foreground="White" FontWeight="Bold" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Content="Del" Background="OrangeRed"></Button>
-                </WrapPanel>
-                <materialDesign:ColorZone VerticalAlignment="Stretch" Background="{StaticResource AccentColorBrush}" Foreground="White" Grid.Row="1">
-                    <Grid>
-                         <Label Content="Tressures" Foreground="White" HorizontalAlignment="Center" FontSize="25"></Label>
-                    </Grid>
-                </materialDesign:ColorZone>
+                <Button VerticalAlignment="Bottom" Command="{Binding AddCommand}" Content="Add Tresures" Style="{StaticResource MaterialDesignFlatButton}" Background="{StaticResource AccentColorBrush}" Margin="0" Foreground="White" Grid.Row="1" Height="50" >
+
+                </Button>
                 <materialDesign:ColorZone Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
 
 
-                    <ListBox  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Tresures, UpdateSourceTrigger=PropertyChanged  }">
+                    <ListBox x:Name="listBox"  ItemContainerStyle="{StaticResource ContainerStyle}"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Tresures, UpdateSourceTrigger=PropertyChanged  }">
                         <ListBox.DataContext>
                             <Binding Path="Caller.Character.Background" Source="{StaticResource Locator}" />
                         </ListBox.DataContext>
-                    
+
+
+
+
                     </ListBox>
-                    
+
                 </materialDesign:ColorZone>
 
 

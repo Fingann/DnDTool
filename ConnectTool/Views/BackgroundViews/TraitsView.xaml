@@ -29,6 +29,7 @@
     <materialDesign:ColorZone Background="WhiteSmoke" Padding="5" >
         <DockPanel>
             <TextBox
+                
             Grid.Row="0"
             DockPanel.Dock="Top"
             materialDesign:HintAssist.Hint="Personality Traits"

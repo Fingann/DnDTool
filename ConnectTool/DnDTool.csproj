@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="ViewModel\BackgroundViewModel.cs" />
     <Compile Include="ViewModel\CharacterViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\QueryDialogViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\BackgroundView.xaml.cs">
@@ -159,6 +160,9 @@
     </Compile>
     <Compile Include="Views\BackgroundViews\TraitsView.xaml.cs">
       <DependentUpon>TraitsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\QueryDialogView.xaml.cs">
+      <DependentUpon>QueryDialogView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BackgroundViews\TraitsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\QueryDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

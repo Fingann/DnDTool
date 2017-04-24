@@ -7,6 +7,8 @@ using DnDTool.Core.Model.Character;
 
 namespace DnDTool.Core.Strategy.Update
 {
+    using DnDTool.Core.Strategy.Enums;
+
     public class UpdateTressures : UpdateStrategy
     {
         public override void Update(Character charecter)
@@ -16,7 +18,7 @@ namespace DnDTool.Core.Strategy.Update
 
         public override void Update(Character charecter, object parameter)
         {
-            Tuple<string, string> tressure = parameter as Tuple<string, string>;
+            Tuple<ActionStrategy, string> tressure = parameter as Tuple<ActionStrategy, string>;
 
             if (tressure ==null)
             {
@@ -24,10 +26,10 @@ namespace DnDTool.Core.Strategy.Update
             }
             switch (tressure.Item1)
             {
-                case "Add":
+                case ActionStrategy.Add:
                     charecter.Background.Tresures.Add(tressure.Item2);
                     break;
-                case "Delete":
+                case ActionStrategy.Delete:
                     charecter.Background.Tresures.Remove(tressure.Item2);
                     break;
 

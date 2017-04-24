@@ -19,30 +19,31 @@
         <Binding Path="Caller" Source="{StaticResource Locator}" />
     </UserControl.DataContext>
     <DockPanel>
+        <controls:ContentControlEx Margin="25" DockPanel.Dock="bottom" HorizontalAlignment="Right"
+            Grid.Row="2" Height="252" Width="201"
+           
+           
+           >
+            <backgroundViews:Tresures ></backgroundViews:Tresures>
+        </controls:ContentControlEx>
         <controls:ContentControlEx
             DockPanel.Dock="Right"
             Grid.Row="2"
-           Margin="25"
+           Margin="25,25,25,0"
             Grid.Column="0"
             Grid.ColumnSpan="2">
             <backgroundViews:TraitsView />
         </controls:ContentControlEx>
-    
-    <controls:ContentControlEx  DockPanel.Dock="Top"
+
+        <controls:ContentControlEx  DockPanel.Dock="Top"
             Grid.Row="2"
-           Margin="25,25,25,0"
+           Margin="25,25,0,25"
            
            >
             <backgroundViews:ApperenceView ></backgroundViews:ApperenceView>
         </controls:ContentControlEx>
 
-        <controls:ContentControlEx  DockPanel.Dock="Top"
-            Grid.Row="2"
-           Margin="25,25,25,0"
-           
-           >
-            <backgroundViews:Tresures ></backgroundViews:Tresures>
-        </controls:ContentControlEx>
+
         <Grid></Grid>
     </DockPanel>
 

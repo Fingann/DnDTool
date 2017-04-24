@@ -7,6 +7,8 @@ using PropertyChanged;
 
 namespace DnDTool.Core.Model.Character
 {
+    using System.Collections.ObjectModel;
+
     [ImplementPropertyChanged]
     public class Background
     {
@@ -24,7 +26,7 @@ namespace DnDTool.Core.Model.Character
         public string Skin { get; set; }
         public string Eyes { get; set; }
         public string Height { get; set; }
-        public List<string> Tresures { get; set; }= new List<string>();
+        public ObservableCollection<string> Tresures { get; set; }= new ObservableCollection<string>();
     
     }
 }

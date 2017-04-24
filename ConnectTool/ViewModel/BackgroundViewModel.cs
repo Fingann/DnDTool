@@ -12,39 +12,48 @@ using MaterialDesignThemes.Wpf;
 
 namespace DnDTool.ViewModel
 {
+    using DnDTool.Core.Strategy.Enums;
+    using DnDTool.ViewModel.Dialogs;
+    using DnDTool.Views.Dialogs;
+
     public class BackgroundViewModel: ViewModelBase, IDisplayable, INavigationView
     {
         public string Title { get; set; } = "Background";
         public object Parameter { get; set; }
 
+        public string SelectedTreassure { get; set; }
+
         public BackgroundViewModel()
         {
             AddCommand = new RelayCommand(AddTreasure);
-            DeleteCommand = new RelayCommand(DeleteTreasure);
-            DialogClosingCommand= new RelayCommand<DialogClosingEventArgs>(DialogClosing);
+            DeleteCommand = new RelayCommand<object>(DeleteTreasure);
+            
         }
 
-        private void DialogClosing(DialogClosingEventArgs obj)
+        private void DeleteTreasure(object item)
         {
-            var o =
-            obj;
+            if (!string.IsNullOrWhiteSpace(item.ToString()))
+            {
+                CharacterManager.Instance.Update(new UpdateTressures(), new Tuple<ActionStrategy, string>(ActionStrategy.Delete, item.ToString()));
+            }
         }
 
-      
-       
-
-        private void DeleteTreasure()
+        private async void AddTreasure()
         {
-            CharacterManager.Instance.Update(new UpdateTressures());
-        }
+            
+            var queryView = new QueryDialogView()
+                                {
+                                    DataContext = new QueryDialogViewModel() { Info = "Treassure to Add:", AcceptButtonText = "Add"}
+                                };
+            var result = await DialogHost.Show(queryView, "Tressures");
 
-        private void AddTreasure()
-        {
-            throw new NotImplementedException();
+            if (result is string && !string.IsNullOrWhiteSpace(result as string))
+            {
+                CharacterManager.Instance.Update(new UpdateTressures(), new Tuple<ActionStrategy,string>(ActionStrategy.Add, result as string));
+            }
         }
-        public RelayCommand<DialogClosingEventArgs> DialogClosingCommand { get; private set; }
-
+        
         public RelayCommand AddCommand { get; private set; }
-        public RelayCommand DeleteCommand { get; private set; }
+        public RelayCommand<object> DeleteCommand { get; private set; }
     }
 }

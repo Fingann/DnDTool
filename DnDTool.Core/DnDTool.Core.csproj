@@ -52,6 +52,7 @@
     <Compile Include="Model\Character\SavingThrow.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Resources\Characters\Races.cs" />
+    <Compile Include="Strategy\Enums\ActionStrategy.cs" />
     <Compile Include="Strategy\Update\UpdateSavingThrowProficiency.cs" />
     <Compile Include="Strategy\Update\UpdateTressures.cs" />
     <Compile Include="Tools\Experience\CharacterAdvancement.cs" />

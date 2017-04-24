@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DnDTool.Views.BackgroundViews"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="700">
+             d:DesignHeight="250" d:DesignWidth="700">
     <UserControl.DataContext>
         <Binding Path="Caller.Character" Source="{StaticResource Locator}" />
     </UserControl.DataContext>
