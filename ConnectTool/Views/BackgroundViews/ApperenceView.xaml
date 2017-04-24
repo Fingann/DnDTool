@@ -1,0 +1,209 @@
+﻿<UserControl x:Class="DnDTool.Views.BackgroundViews.ApperenceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DnDTool.Views.BackgroundViews"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="700">
+    <UserControl.DataContext>
+        <Binding Path="Caller.Character" Source="{StaticResource Locator}" />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--  note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want  -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+
+            <Style
+                x:Key="InfoStyle"
+                BasedOn="{StaticResource {x:Type TextBox}}"
+                TargetType="TextBox">
+                <Setter Property="Margin" Value="0,0,5,0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+
+            </Style>
+            <Style
+                x:Key="InfoLabelStyle"
+                BasedOn="{StaticResource {x:Type Label}}"
+                TargetType="Label">
+
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="Padding" Value="1" />
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Background="{StaticResource AccentColorBrush}" >
+            <TextBox FontWeight="Bold" Foreground="White" TextAlignment="Center" FontSize="35" Text="{Binding Info.CharecterName}"></TextBox>
+        </Grid>
+    <materialDesign:ColorZone 
+            DockPanel.Dock="Right"
+            VerticalAlignment="Stretch"
+            
+            Background="WhiteSmoke"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            Mode="PrimaryMid" >
+
+        <Grid
+            x:Name="Info"
+            Margin="5,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+
+            </Grid.RowDefinitions>
+                <TextBox
+                Grid.Row="0" x:Name="Age"
+                Style="{StaticResource InfoStyle}"
+                Text="{Binding Background.Age, UpdateSourceTrigger=PropertyChanged }" />
+                <Label
+                x:Name="AgeLabel"
+                Grid.Row="1"
+                Grid.Column="0"
+                Content="Age"
+                Style="{StaticResource InfoLabelStyle}" />
+                <TextBox
+                x:Name="Eyes"
+                Grid.Row="2"
+                Grid.Column="0"
+                Style="{StaticResource InfoStyle}"
+                    Text="{Binding Background.Eyes, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label
+                x:Name="EyesLabel"
+                Grid.Row="3"
+                Grid.Column="0"
+                Content="Eyes"
+                Style="{StaticResource InfoLabelStyle}" />
+             
+            <TextBox
+                x:Name="Height"
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{StaticResource InfoStyle}"
+                Text="{Binding Background.Height, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                <Label
+                x:Name="HeightLabel"
+                Grid.Row="1"
+                Grid.Column="1"
+                Content="Height"
+                Style="{StaticResource InfoLabelStyle}" />
+                <TextBox
+                x:Name="Weight"
+                Grid.Row="0"
+                Grid.Column="2"
+                Style="{StaticResource InfoStyle}"
+                Text="{Binding Background.Weight, UpdateSourceTrigger=PropertyChanged}" />
+                <Label
+                x:Name="WeightLabel"
+                Grid.Row="1"
+                Grid.Column="2"
+                Content="Weight"
+                Style="{StaticResource InfoLabelStyle}" />
+                <TextBox
+                    x:Name="Skin"
+                Grid.Row="2"
+                Grid.Column="1"
+                Style="{StaticResource InfoStyle}"
+                    Text="{Binding Background.Skin, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label
+                x:Name="SkinLabel"
+                Grid.Row="3"
+                Grid.Column="1"
+                Content="Skin"
+                Style="{StaticResource InfoLabelStyle}" />
+                <!--<TextBox
+                x:Name="Allignment"
+                Grid.Row="2"
+                Grid.Column="1"
+                Style="{StaticResource InfoStyle}"
+                Text="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}" />-->
+            <TextBox
+                x:Name="Hair"
+                Grid.Row="2"
+                Grid.Column="2"
+                Style="{StaticResource InfoStyle}"
+                Text="{Binding Background.Hair, UpdateSourceTrigger=PropertyChanged}" />
+           
+            <Label
+                x:Name="Racelabel"
+                Grid.Row="3"
+                Grid.Column="2"
+                Content="Hair"
+                Style="{StaticResource InfoLabelStyle}" />
+
+                <ComboBox
+                    x:Name="Race"
+                Grid.Row="0"
+                Grid.Column="3"
+                Margin="0,0,5,0"
+                VerticalAlignment="Bottom"
+                materialDesign:HintAssist.Hint="Search"
+                materialDesign:HintAssist.HintOpacity=".26"
+                IsEditable="True"
+                Text="{Binding Info.Race, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem>Human</ComboBoxItem>
+                    <ComboBoxItem>Orc</ComboBoxItem>
+                    <ComboBoxItem>Dwarf</ComboBoxItem>
+                    <ComboBoxItem>Halfling</ComboBoxItem>
+                    <ComboBoxItem>Elf</ComboBoxItem>
+                </ComboBox>
+                <Label
+                x:Name="RaceLabel"
+                Grid.Row="1"
+                Grid.Column="3"
+                Content="Race"
+                Style="{StaticResource InfoLabelStyle}" />
+
+                <ComboBox
+                    x:Name="Allignment"
+                Grid.Row="2"
+                Grid.Column="3"
+                Margin="0,0,5,0"
+                VerticalAlignment="Bottom"
+                materialDesign:HintAssist.Hint="Search"
+                materialDesign:HintAssist.HintOpacity=".26"
+                IsEditable="True"
+                   
+                    Text="{Binding Info.Allignment,UpdateSourceTrigger=PropertyChanged}"
+                >
+
+                    
+                    <ComboBoxItem>Neutral good</ComboBoxItem>
+                    <ComboBoxItem>Chaotic good</ComboBoxItem>
+                    <ComboBoxItem>Lawful neutral</ComboBoxItem>
+                    <ComboBoxItem>(True) neutral</ComboBoxItem>
+                    <ComboBoxItem>Chaotic neutral</ComboBoxItem>
+                    <ComboBoxItem>Lawful evil</ComboBoxItem>
+                    <ComboBoxItem>Neutral good</ComboBoxItem>
+                    <ComboBoxItem>Chaotic good</ComboBoxItem>
+                </ComboBox>
+                <Label
+                x:Name="AllignmentLable"
+                Grid.Row="3"
+                Grid.Column="3"
+                Content="Allignement"
+                Style="{StaticResource InfoLabelStyle}" />
+
+
+            </Grid>
+    </materialDesign:ColorZone>
+    </DockPanel>
+</UserControl>

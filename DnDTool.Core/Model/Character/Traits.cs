@@ -1,5 +1,8 @@
-﻿namespace DnDTool.Core.Model.Character
+﻿using PropertyChanged;
+
+namespace DnDTool.Core.Model.Character
 {
+    [ImplementPropertyChanged]
     public class Traits
     {
         public string PersonalTraits { get; set; } = "test";

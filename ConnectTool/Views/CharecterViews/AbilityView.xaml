@@ -23,9 +23,13 @@
                 <!--  note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want  -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Thumb.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
 
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
             <!--<TextBox Margin="0,0,5,0" FontSize="25" HorizontalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}" ></TextBox>-->
             <Style
@@ -47,79 +51,130 @@
             x:Name="SavingThrowsList"
             Grid.Row="0"
             Margin="0"
+            
             ItemsSource="{Binding Abilityscore, UpdateSourceTrigger=PropertyChanged}">
+
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <Setter Property="VerticalContentAlignment" Value="Bottom" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Margin" Value="5,0,5,0"></Setter>
+                    <!--<Style.Triggers>
+                        <Trigger Property="IsSelected" Value="true" >
+                            <Setter Property="Foreground" Value="YourForegroundColour" />
+                            <Setter Property="Background" Value="YourBackgroundColour" />
+                        </Trigger>
+                        </Style.Triggers>-->
+
 
                 </Style>
+
+
             </ListView.ItemContainerStyle>
+
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <controls:WrapPanelExtended Orientation="Vertical" RowsOrColumnsCount="5" />
+                   <WrapPanel ></WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <!--#region Card Region-->
-                    <DockPanel>
-                        <materialDesign:Card>
-                            <DockPanel Background="{StaticResource PrimaryHueLightBrush}" Dock="Top">
 
+                    <materialDesign:Card VerticalAlignment="Stretch">
+                        <DockPanel Background="WhiteSmoke" Dock="Top">
+                            <Grid
 
-                                <WrapPanel
-                                    Grid.ColumnSpan="2"
-                                    HorizontalAlignment="Center"
+                                Background="{StaticResource AccentColorBrush}"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    
                                     DockPanel.Dock="Top">
-                                    <TextBox
-                                        MinWidth="10"
-                                        BorderThickness="0"
-                                        Foreground="DeepSkyBlue"
-                                        Style="{StaticResource SavingThrowHeaderStyle}"
-                                        Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}" />
-                                    <TextBlock
-                                        Margin="7,0,7,0"
+
+
+
+                                <TextBlock
+                                        
                                         VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Foreground="White"
                                         FontSize="10"
                                         FontWeight="Bold"
-                                        Text="{Binding ShortName, UpdateSourceTrigger=PropertyChanged}" />
+                                        TextAlignment="Center"
+                                    
+                                    Margin="3"
+                                        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.RowSpan="2"    Grid.Column="0"  >
+                                    <!--<TextBlock.LayoutTransform>
+                                        <RotateTransform Angle="-90"/>
+                                    </TextBlock.LayoutTransform>-->
+                                </TextBlock>
+                            </Grid>
+                            <Grid DockPanel.Dock="Right"  HorizontalAlignment="Stretch" VerticalAlignment="Top" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
 
-                                    <TextBlock
-                                        Margin="0,0,5,0"
+                               
+
+                                    <TextBox
+                                        MinWidth="10"
+                                        Grid.Column="0"
+                                        BorderThickness="0"
+                                        Foreground="{StaticResource AccentColorBrush}"
+                                        Grid.Row="0"
                                         HorizontalAlignment="Center"
+                                        FontSize="25"
+                                        Margin="0,0,0,-10"
+                                        Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}"  />
+                                    <Label Grid.Row="1" Foreground="DarkGray" HorizontalAlignment="Center" Content="Score"></Label>
+                               
+                               
+                                    <TextBlock
                                         VerticalAlignment="Center"
-                                        Foreground="{Binding Bonus, Converter={StaticResource PositiveNegativeColorConverter}}"
-                                        Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
-                                </WrapPanel>
+                                        Grid.Row="2"
+                                        FontSize="25"
+                                        Margin="0,-5,0,0"
+                                        HorizontalAlignment="Center"
+                                        Foreground="{Binding Bonus, Converter={StaticResource PositiveNegativeColorConverter}, ConverterParameter={StaticResource AccentColorBrush}}"
+                                        Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"   />
+                                <Label Grid.Row="3" Margin="0,-5,0,0"  VerticalAlignment="Center" Foreground="DarkGray" Content="Bonus"></Label>
 
-                                <DataGrid
+                                
+                            </Grid>
+
+                            <DataGrid
                                     Margin="0,0,0,0"
                                     materialDesign:DataGridAssist.CellPadding="0 0 0 0"
                                     materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 5 2"
                                     AutoGenerateColumns="False"
+                                    GridLinesVisibility="None"
                                     CanUserAddRows="False"
                                     CanUserSortColumns="False"
-                                    DockPanel.Dock="Top"
+                                    DockPanel.Dock="Right"
                                     HeadersVisibility="None"
                                     ItemsSource="{Binding SavingThrows}">
 
-                                    <DataGrid.Columns>
-                                        <DataGridCheckBoxColumn Binding="{Binding Proficient, UpdateSourceTrigger=PropertyChanged}">
-                                            <DataGridCheckBoxColumn.ElementStyle>
-                                                <Style TargetType="{x:Type CheckBox}" />
-                                            </DataGridCheckBoxColumn.ElementStyle>
-                                        </DataGridCheckBoxColumn>
+
+                                <DataGrid.Columns>
+
+                                    <DataGridCheckBoxColumn ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}" Binding="{Binding Proficient, UpdateSourceTrigger=PropertyChanged}" >
+                                        
+                                    </DataGridCheckBoxColumn>
 
 
 
-                                        <materialDesign:MaterialDataGridTextColumn
+                                    <materialDesign:MaterialDataGridTextColumn
                                             Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="80"
+                                        FontWeight="Bold"
                                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
-                                            FontSize="7"
+                                            FontSize="9"
                                             IsReadOnly="True" />
 
-                                        <materialDesign:MaterialDataGridTextColumn
+                                    <materialDesign:MaterialDataGridTextColumn
                                             MinWidth="5"
                                             Binding="{Binding TotalScore, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource ToPlussMinusIntConverter}}"
                                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
@@ -128,16 +183,16 @@
                                             Foreground="{StaticResource AccentColorBrush}"
                                             IsReadOnly="True">
 
-                                            <DataGridTextColumn.ElementStyle>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="HorizontalAlignment" Value="Center" />
-                                                </Style>
-                                            </DataGridTextColumn.ElementStyle>
-                                        </materialDesign:MaterialDataGridTextColumn>
-                                    </DataGrid.Columns>
-                                </DataGrid>
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </materialDesign:MaterialDataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
 
-                                <!--<ListView DockPanel.Dock="Top"  ItemsSource="{Binding SavingThrows, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1"
+                            <!--<ListView DockPanel.Dock="Top"  ItemsSource="{Binding SavingThrows, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1"
                                    Grid.Column="1">
                                 <ListView.ItemContainerStyle>
                                     <Style TargetType="ListViewItem">
@@ -158,9 +213,9 @@
                                 </ListView.ItemTemplate>
                             </ListView>-->
 
-                            </DockPanel>
-                        </materialDesign:Card>
-                    </DockPanel>
+                        </DockPanel>
+                    </materialDesign:Card>
+
                     <!--#endregion-->
                 </DataTemplate>
 

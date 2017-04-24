@@ -41,24 +41,29 @@ namespace DnDTool.Design
         public void GetCharecter(Action<Character, Exception> callback)
         {
             var abilityScores = new AbilityScores();
-            abilityScores.Abilityscore.First().SavingThrows.First().BaseScore = 3;        
-            //{
-                                           //    Abilityscore =
-                                           //        new List<AbilityScore>()
-                                           //            {
-                                           //                new AbilityScore() {  ShortName = "STR", Name = "Strength", Score = 10, Url = "ht" },
-                                           //                new AbilityScore() {  ShortName = "DEX", Name = "Dexterity", Score = 13, Url = "ht" },
-                                           //                new AbilityScore() {  ShortName = "CON", Name = "Constitution", Score = 15, Url = "ht" },
-                                           //                new AbilityScore() { ShortName = "INT", Name = "Intelligence", Score = 12, Url = "ht" },
-                                           //                new AbilityScore() { ShortName = "WIS", Name = "Wisdom", Score = 3, Url = "ht" },
-                                           //                new AbilityScore() { ShortName = "CHA", Name = "Charisma", Score = 9, Url = "ht" }
-                                           //            },Inspiration = 1, PassiveWisdom = 0, ProficiencyBonus = 2
-                                           //};
+            abilityScores.Abilityscore.First().SavingThrows.First().BaseScore = 3;
+            foreach (var abilityScore in abilityScores.Abilityscore)
+            {
+                foreach (var VARIABLE in abilityScore.SavingThrows)
+                {
+                    VARIABLE.BaseScore = new Random().Next(8,15);
+                }
+            }
 
+            var background = new Background()
+            {
+                Age = "15",
+                Backstroy =
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                    , Hair = "Brown",
+                Eyes = "blue", Weight = "50 lb", Skin = "Green", Height = "1,5 Meter", Tresures = new List<string>() { "Hairy old tooth", "Foot ofa goblin", "Head of a dragon"}
+            };
+          
             var info = new Info()
                            {
                                Allignment = "Natural Evil", Background = "Pirate", CharecterName = "Malov", Class = "Barbarian", ExperiencePoints = 940, Level = 5, PlayerName = "Sondre", Race = "Half-Orc"
                            };
+            
 
             var traits = new Traits()
             {
@@ -67,7 +72,7 @@ namespace DnDTool.Design
                 Ideals = "Honor, glory and women",
                 PersonalTraits = "Like Choclate, i really like Choclate"
             };
-            var item = new Character() {Info  = info, AbilityScores = abilityScores, Traits = traits};
+            var item = new Character() {Info  = info, AbilityScores = abilityScores, Traits = traits, Background = background};
             callback(item, null);
         }
     }

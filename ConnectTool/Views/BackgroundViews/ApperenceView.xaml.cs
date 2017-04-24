@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DnDTool.Views.CharecterViews
+namespace DnDTool.Views.BackgroundViews
 {
     /// <summary>
-    /// Interaction logic for TraitsView.xaml
+    /// Interaction logic for ApperenceView.xaml
     /// </summary>
-    public partial class TraitsView : UserControl
+    public partial class ApperenceView : UserControl
     {
-        public TraitsView()
+        public ApperenceView()
         {
             InitializeComponent();
         }

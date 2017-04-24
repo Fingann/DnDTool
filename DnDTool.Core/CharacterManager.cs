@@ -41,5 +41,13 @@ namespace DnDTool.Core
                 this.updateStrategy.Update(this.Character);
             }
         }
+        public void Update(UpdateStrategy updateStrat, object parameter)
+        {
+            this.updateStrategy = updateStrat;
+            if (this.Character != null)
+            {
+                this.updateStrategy.Update(this.Character, parameter);
+            }
+        }
     }
 }

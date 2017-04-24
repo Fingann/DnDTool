@@ -17,8 +17,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace DnDTool.ViewModel
 {
-    using DnDTool.ViewModel.CharacterModels;
-    using DnDTool.ViewModel.CharacterModels.AbilityScore;
+   
 
     /// <summary>
     /// This class contains static references to all the view models in the
@@ -54,6 +53,7 @@ namespace DnDTool.ViewModel
             //SimpleIoc.Default.Register<AbilityScoresViewModel>(true);
             SimpleIoc.Default.Register<MainViewModel>(true);
             SimpleIoc.Default.Register<CharacterViewModel>(true);
+            SimpleIoc.Default.Register<BackgroundViewModel>(true);
 
             //SimpleIoc.Default.Register<InfoViewModel>();
             
@@ -72,10 +72,16 @@ namespace DnDTool.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
+        public BackgroundViewModel Background
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<BackgroundViewModel>();
+            }
+        }
 
-       
 
-        
+
 
 
         /// <summary>

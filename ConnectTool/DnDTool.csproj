@@ -135,17 +135,21 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>UserSettings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CharacterModels\AbilityScore\AbilityScoresViewModel.cs" />
-    <Compile Include="ViewModel\CharacterModels\TraitsViewModel.cs" />
+    <Compile Include="ViewModel\BackgroundViewModel.cs" />
     <Compile Include="ViewModel\CharacterViewModel.cs" />
-    <Compile Include="ViewModel\CharacterModels\InfoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\BackgroundView.xaml.cs">
+      <DependentUpon>BackgroundView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BackgroundViews\ApperenceView.xaml.cs">
+      <DependentUpon>ApperenceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BackgroundViews\Tresures.xaml.cs">
+      <DependentUpon>Tresures.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CharecterView.xaml.cs">
       <DependentUpon>CharecterView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CharecterViews\AbilityScore\AbilityScoresView.xaml.cs">
-      <DependentUpon>AbilityScoresView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharecterViews\AbilityView.xaml.cs">
       <DependentUpon>AbilityView.xaml</DependentUpon>
@@ -153,7 +157,7 @@
     <Compile Include="Views\CharecterViews\InfoView.xaml.cs">
       <DependentUpon>InfoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharecterViews\TraitsView.xaml.cs">
+    <Compile Include="Views\BackgroundViews\TraitsView.xaml.cs">
       <DependentUpon>TraitsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -172,11 +176,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CharecterView.xaml">
+    <Page Include="Views\BackgroundView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CharecterViews\AbilityScore\AbilityScoresView.xaml">
+    <Page Include="Views\BackgroundViews\ApperenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BackgroundViews\Tresures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CharecterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +200,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CharecterViews\TraitsView.xaml">
+    <Page Include="Views\BackgroundViews\TraitsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

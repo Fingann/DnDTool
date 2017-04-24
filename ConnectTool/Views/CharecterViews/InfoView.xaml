@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converter="clr-namespace:DnDTool.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:DnDTool.Views.CharecterViews"
+    xmlns:local="clr-namespace:DnDTool.Core.Resources;assembly=DnDTool.Core"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="100"
@@ -13,6 +13,7 @@
     <UserControl.DataContext>
         <Binding Path="Caller.Character.Info" Source="{StaticResource Locator}" />
     </UserControl.DataContext>
+    <!--#region Styles-->
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -32,7 +33,7 @@
                 <Setter Property="Margin" Value="0,0,5,0" />
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="TextWrapping" Value="Wrap" />
-                <Setter Property="MaxWidth" Value="150" />
+                 
             </Style>
             <Style
                 x:Key="InfoLabelStyle"
@@ -42,17 +43,14 @@
                 <Setter Property="FontSize" Value="10" />
                 <Setter Property="Padding" Value="1" />
             </Style>
-
         </ResourceDictionary>
     </UserControl.Resources>
-
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="291*" />
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0">
+    <!--#endregion-->
+    
+    <!--#region Image-->
+    
+    <DockPanel>
+        <Grid DockPanel.Dock="Left" Grid.Row="0">
 
             <Image
                 x:Name="CharacterImage"
@@ -72,7 +70,17 @@
                 TextAlignment="Center" />
 
         </Grid>
-        <Grid
+        
+        <!--#endregion-->
+        
+        <materialDesign:ColorZone 
+            DockPanel.Dock="Right"
+            VerticalAlignment="Stretch"
+            Background="WhiteSmoke"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            Mode="PrimaryMid" >
+
+            <Grid
             x:Name="Info"
             Grid.Row="0"
             Grid.Column="1"
@@ -91,7 +99,7 @@
 
             </Grid.RowDefinitions>
             <TextBox
-                x:Name="ClassLevel"
+                Grid.Row="0" x:Name="ClassLevel"
                 Style="{StaticResource InfoStyle}"
                 Text="{Binding Class}" />
             <Label
@@ -108,7 +116,7 @@
                 materialDesign:HintAssist.Hint="Search"
                 materialDesign:HintAssist.HintOpacity=".26"
                 IsEditable="True"
-                SelectedItem="{Binding Race, UpdateSourceTrigger=PropertyChanged}">
+                Text="{Binding Race, UpdateSourceTrigger=PropertyChanged}">
                 <ComboBoxItem>Human</ComboBoxItem>
                 <ComboBoxItem>Orc</ComboBoxItem>
                 <ComboBoxItem>Dwarf</ComboBoxItem>
@@ -132,7 +140,7 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{StaticResource InfoStyle}"
-                Text="{Binding Background, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Background, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
             <Label
                 x:Name="BackgroundLabel"
                 Grid.Row="1"
@@ -146,7 +154,7 @@
                 Grid.Column="2"
                 Style="{StaticResource InfoStyle}"
                 Text="{Binding CharecterName, UpdateSourceTrigger=PropertyChanged}" />
-            <ComboBox
+                <ComboBox
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="0,0,5,0"
@@ -154,18 +162,20 @@
                 materialDesign:HintAssist.Hint="Search"
                 materialDesign:HintAssist.HintOpacity=".26"
                 IsEditable="True"
-                SelectedItem="{Binding Allignment, UpdateSourceTrigger=PropertyChanged}">
+                Text="{Binding Allignment,UpdateSourceTrigger=PropertyChanged}"
+                
+                >
+                    <ComboBoxItem>Neutral good</ComboBoxItem>
+                    <ComboBoxItem>Chaotic good</ComboBoxItem>
+                    <ComboBoxItem>Lawful neutral</ComboBoxItem>
+                    <ComboBoxItem>(True) neutral</ComboBoxItem>
+                    <ComboBoxItem>Chaotic neutral</ComboBoxItem>
+                    <ComboBoxItem>Lawful evil</ComboBoxItem>
+                    <ComboBoxItem>Neutral good</ComboBoxItem>
+                    <ComboBoxItem>Chaotic good</ComboBoxItem>
+                </ComboBox>
 
-                <ComboBoxItem>Lawful good</ComboBoxItem>
-                <ComboBoxItem>Neutral good</ComboBoxItem>
-                <ComboBoxItem>Chaotic good</ComboBoxItem>
-                <ComboBoxItem>Lawful neutral</ComboBoxItem>
-                <ComboBoxItem>(True) neutral</ComboBoxItem>
-                <ComboBoxItem>Chaotic neutral</ComboBoxItem>
-                <ComboBoxItem>Lawful evil</ComboBoxItem>
-                <ComboBoxItem>Neutral good</ComboBoxItem>
-                <ComboBoxItem>Chaotic good</ComboBoxItem>
-            </ComboBox>
+                
             <!--<TextBox
                 x:Name="Allignment"
                 Grid.Row="2"
@@ -198,6 +208,7 @@
                 Style="{StaticResource InfoLabelStyle}" />
 
         </Grid>
-    </Grid>
+            </materialDesign:ColorZone>
+        </DockPanel>
 
 </UserControl>

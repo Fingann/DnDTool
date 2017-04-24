@@ -1,10 +1,11 @@
 ﻿using DnDTool.Core.Strategy;
+using PropertyChanged;
 
 namespace DnDTool.Core.Model.Character
 {
     using System;
     using System.Collections.Generic;
-
+    [ImplementPropertyChanged]
     public class Character
     {
        
@@ -16,6 +17,7 @@ namespace DnDTool.Core.Model.Character
 
         public Traits Traits { get; set;  } = new Traits(); 
         public Weapons Weapons { get; set; }= new Weapons();
+        public Background Background { get; set; } = new Background();
 
        
 

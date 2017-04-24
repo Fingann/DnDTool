@@ -24,5 +24,10 @@ namespace DnDTool.Core.Strategy.Update
             }
             
         }
+
+        public override void Update(Character charecter, object parameter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

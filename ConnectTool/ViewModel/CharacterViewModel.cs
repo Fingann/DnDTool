@@ -13,8 +13,7 @@ namespace DnDTool.ViewModel
     using DnDTool.Core.Model.Character;
     using DnDTool.Interface;
     using DnDTool.Model.Services;
-    using DnDTool.ViewModel.CharacterModels;
-    using DnDTool.ViewModel.CharacterModels.AbilityScore;
+    
 
     using GalaSoft.MvvmLight;
 
@@ -23,13 +22,9 @@ namespace DnDTool.ViewModel
     /// </summary>
     public class CharacterViewModel : ViewModelBase, INavigationView, IDisplayable
     {
-        private AbilityScoresViewModel abilityScoresViewModel;
+        
 
         private Character character;
-
-        private InfoViewModel infoViewModel;
-
-        private TraitsViewModel traitsViewModel;
 
         public CharacterViewModel(
             IDataService dataservice,
@@ -38,9 +33,8 @@ namespace DnDTool.ViewModel
         {
             this._navigationService = navigationService;
             this._notificationService = notificationService;
-            abilityScoresViewModel = new AbilityScoresViewModel();
-            InfoViewModel =new InfoViewModel();
-            traitsViewModel = new TraitsViewModel();
+            
+          
             // this.DisplayNotificationCommand = new RelayCommand(this.DisplayNotification);
             this._dataService = dataservice;
             this._dataService.GetCharecter(
@@ -51,41 +45,11 @@ namespace DnDTool.ViewModel
                         this.Character = character;
                         CharacterManager.Instance.Character = this.Character;
                     });
-            AbilityScoresViewModel = new AbilityScoresViewModel() {AbilityScores = this.character.AbilityScores};
-            InfoViewModel = new InfoViewModel() {Info = this.character.Info};
-            TraitsViewModel = new TraitsViewModel() {Traits = character.Traits};
+            
         }
 
         public IDataService _dataService { get; set; }
-
-        public TraitsViewModel TraitsViewModel
-        {
-            get
-            {
-                return this.traitsViewModel;
-            }
-
-            set
-            {
-                this.traitsViewModel = value;
-                this.RaisePropertyChanged();
-            }
-        }
-
-        public AbilityScoresViewModel AbilityScoresViewModel
-        {
-            get
-            {
-                return this.abilityScoresViewModel;
-            }
-
-            set
-            {
-                this.abilityScoresViewModel = value;
-                this.RaisePropertyChanged();
-            }
-        }
-
+        
         public Character Character
         {
             get
@@ -100,19 +64,9 @@ namespace DnDTool.ViewModel
             }
         }
 
-        public InfoViewModel InfoViewModel
-        {
-            get
-            {
-                return this.infoViewModel;
-            }
 
-            set
-            {
-                this.infoViewModel = value;
-                this.RaisePropertyChanged();
-            }
-        }
+
+     
 
         public object Parameter { get; set; }
 

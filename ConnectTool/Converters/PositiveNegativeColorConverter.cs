@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DnDTool.Converters
 {
@@ -21,9 +22,9 @@ namespace DnDTool.Converters
             {
                 return new SolidColorBrush(Colors.Black);
             }
-
+            
             number = (int)values;
-            return (number >= 0) ? new SolidColorBrush(Colors.GreenYellow) : new SolidColorBrush(Colors.OrangeRed);
+            return (number >= 0) ? parameter : new SolidColorBrush(Colors.OrangeRed);
 
           
         }

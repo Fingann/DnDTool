@@ -16,5 +16,10 @@ namespace DnDTool.Core.Strategy.Update
         {
             charecter.Info.Level = ExperienceTool.GetLevel(charecter.Info.ExperiencePoints);
         }
+
+        public override void Update(Character charecter, object parameter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

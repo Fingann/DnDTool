@@ -48,9 +48,12 @@
   <ItemGroup>
     <Compile Include="CharacterManager.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
+    <Compile Include="Model\Character\Background.cs" />
     <Compile Include="Model\Character\SavingThrow.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Resources\Characters\Races.cs" />
     <Compile Include="Strategy\Update\UpdateSavingThrowProficiency.cs" />
+    <Compile Include="Strategy\Update\UpdateTressures.cs" />
     <Compile Include="Tools\Experience\CharacterAdvancement.cs" />
     <Compile Include="Tools\Experience\ExperienceTool.cs" />
     <Compile Include="Model\Character\AbilityScore.cs" />

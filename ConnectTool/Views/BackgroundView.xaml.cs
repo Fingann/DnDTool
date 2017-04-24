@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DnDTool.Views.CharecterViews
+namespace DnDTool.Views
 {
     /// <summary>
-    /// Interaction logic for AbilityScoresView.xaml
+    /// Interaction logic for BackgroundView.xaml
     /// </summary>
-    public partial class AbilityScoresView : UserControl
+    public partial class BackgroundView : UserControl
     {
-        public AbilityScoresView()
+        public BackgroundView()
         {
             InitializeComponent();
         }

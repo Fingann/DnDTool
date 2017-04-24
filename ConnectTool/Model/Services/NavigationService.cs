@@ -18,9 +18,15 @@ namespace DnDTool.Model.Services
 
         public NavigationService()
         {
-            this.ViewList = new Dictionary<string, IDisplayable>
+            this.ViewList = new Dictionary<string, IDisplayable>()
                                 {
-                                        { "Charecter", new CharacterViewModel(new DataService(), new NotificationService(), null) }
+                                    {
+                                        "Charecter", new CharacterViewModel(new DataService(), new NotificationService(), null)
+
+                                    },
+                                    {
+                                        "Background", new BackgroundViewModel()
+                                    }
                                         
                                 };
             this.currentViewValue = this.ViewList.First().Value;

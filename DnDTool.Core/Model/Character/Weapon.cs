@@ -1,7 +1,9 @@
-﻿namespace DnDTool.Core.Model.Character
+﻿using PropertyChanged;
+
+namespace DnDTool.Core.Model.Character
 {
     using System;
-
+    [ImplementPropertyChanged]
     public class Damage
     {
     
@@ -13,7 +15,7 @@
         //DatamageType
         public string damage_type { get; set; }
     }
-
+    [ImplementPropertyChanged]
     public class Weapon
     {
         public String Name { get; set; }
